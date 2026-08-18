@@ -1,0 +1,18 @@
+name: SkillWeaponsPlugin
+version: 1.0-SNAPSHOT
+main: com.skillweapons.skillweaponsplugin.SkillWeaponsPlugin
+api-version: 1.20
+author: Xautral/OmniXautral
+description: Plugin de skills para armas en Minecraft
+
+commands:
+  sw:
+    description: Comandos de SkillWeapons
+    usage: /sw give [enchant]
+    aliases: [skillweapons, skillw]
+    permission: skillweapons.admin
+
+permissions:
+  skillweapons.admin:
+    description: Permite usar comandos de SkillWeapons
+    default: op

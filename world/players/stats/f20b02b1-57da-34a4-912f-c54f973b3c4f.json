@@ -1,0 +1,34 @@
+{
+  "stats": {
+    "minecraft:mined": {
+      "minecraft:player_head": 1,
+      "minecraft:chest": 1
+    },
+    "minecraft:used": {
+      "minecraft:written_book": 1
+    },
+    "minecraft:picked_up": {
+      "minecraft:player_head": 1,
+      "minecraft:chest": 1,
+      "minecraft:written_book": 1
+    },
+    "minecraft:custom": {
+      "minecraft:time_since_rest": 6817,
+      "minecraft:walk_one_cm": 3369,
+      "minecraft:leave_game": 9,
+      "minecraft:damage_taken": 20,
+      "minecraft:play_time": 36690,
+      "minecraft:jump": 43,
+      "minecraft:time_since_death": 6811,
+      "minecraft:sprint_one_cm": 6298,
+      "minecraft:open_chest": 5,
+      "minecraft:fall_one_cm": 2223,
+      "minecraft:total_world_time": 36690,
+      "minecraft:fly_one_cm": 73125,
+      "minecraft:crouch_one_cm": 103,
+      "minecraft:sneak_time": 131,
+      "minecraft:deaths": 6
+    }
+  },
+  "DataVersion": 4903
+}

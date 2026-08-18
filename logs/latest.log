@@ -1,56 +1,30 @@
-[21:14:54] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Microsoft Microsoft-13053558) on Linux 6.8.0-1052-azure (amd64)
-[21:14:54] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
-[21:14:54] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[21:14:55] [ServerMain/INFO]: [PluginInitializerManager] Initialized 0 plugins
-[21:14:59] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
-[21:15:00] [ServerMain/WARN]: Failed to load eula.txt
-[21:15:00] [ServerMain/WARN]: You have used the Paper command line EULA agreement flag.
-[21:15:00] [ServerMain/WARN]: By using this setting you are indicating your agreement to Mojang's EULA (https://aka.ms/MinecraftEULA).
-[21:15:00] [ServerMain/WARN]: If you do not agree to the above EULA please stop your server and remove this flag immediately.
-[21:15:00] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
-[21:15:01] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 802.6ms
-[21:15:06] [ServerMain/INFO]: Found new data pack paper, loading it automatically
-[21:15:06] [Worker-Main-1/INFO]: No existing world data, creating new world
-[21:15:07] [ServerMain/INFO]: Loaded 1585 recipes
-[21:15:07] [ServerMain/INFO]: Loaded 1688 advancements
-[21:15:08] [Server thread/INFO]: Starting minecraft server version 26.2
-[21:15:08] [Server thread/INFO]: Loading properties
-[21:15:08] [Server thread/INFO]: This server is running Paper version 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) (Implementing API version 26.2.build.112-stable)
-[21:15:08] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[21:15:08] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[21:15:08] [Server thread/INFO]: Using 4 threads for Netty based IO
-[21:15:08] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
-[21:15:08] [Server thread/INFO]: Default game type: SURVIVAL
-[21:15:08] [Server thread/INFO]: Generating keypair
-[21:15:08] [Server thread/INFO]: Starting Minecraft server on *:25565
-[21:15:08] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
-[21:15:08] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
-[21:15:08] [Server thread/INFO]: Preparing level "world"
-[21:15:09] [Server thread/INFO]: Selecting spawn point for level 'minecraft:overworld'...
-[21:15:17] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_nether'...
-[21:15:18] [Server thread/INFO]: Selecting spawn point for level 'minecraft:the_end'...
-[21:15:18] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
-[21:15:18] [Server thread/INFO]: Preparing spawn area: 100%
-[21:15:18] [Server thread/INFO]: Prepared spawn area in 9296 ms
-[21:15:18] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
-[21:15:18] [Server thread/INFO]: Preparing spawn area: 100%
-[21:15:18] [Server thread/INFO]: Prepared spawn area in 1372 ms
-[21:15:18] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
-[21:15:18] [Server thread/INFO]: Preparing spawn area: 100%
-[21:15:18] [Server thread/INFO]: Prepared spawn area in 313 ms
-[21:15:18] [Server thread/INFO]: Done preparing level "world" (9.714s)
-[21:15:18] [Server thread/INFO]: [spark] Starting background profiler...
-[21:15:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[21:15:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[21:15:19] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[21:15:19] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[21:15:19] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[21:15:19] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[21:15:19] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[21:15:19] [Server thread/INFO]: Running delayed init tasks
-[21:15:19] [Server thread/INFO]: Done (26.750s)! For help, type "help"
-[21:15:19] [Server thread/INFO]: *************************************************************************************
-[21:15:19] [Server thread/INFO]: This is the first time you're starting this server.
-[21:15:19] [Server thread/INFO]: It's recommended you read our 'Getting Started' documentation for guidance.
-[21:15:19] [Server thread/INFO]: View this and more helpful information here: https://docs.papermc.io/paper/next-steps
-[21:15:19] [Server thread/INFO]: *************************************************************************************
+[22:08:14] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Microsoft Microsoft-13053558) on Linux 6.8.0-1052-azure (amd64)
+[22:08:14] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
+[22:08:14] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[22:08:15] [ServerMain/INFO]: [PluginInitializerManager] Initialized 7 plugins
+[22:08:15] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (7):
+ - LoginSecurity (3.3.1), OpenInv (5.3.3), PermaDeathPlugin (1.0-SNAPSHOT), SkillWeaponsPlugin (1.0-SNAPSHOT), SkinsRestorer (15.12.5), ViaBackwards (5.11.0), ViaVersion (5.11.0)
+[22:08:19] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[22:08:19] [ServerMain/WARN]: You have used the Paper command line EULA agreement flag.
+[22:08:19] [ServerMain/WARN]: By using this setting you are indicating your agreement to Mojang's EULA (https://aka.ms/MinecraftEULA).
+[22:08:19] [ServerMain/WARN]: If you do not agree to the above EULA please stop your server and remove this flag immediately.
+[22:08:19] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[22:08:20] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 953.7ms
+[22:08:22] [ServerMain/INFO]: Loaded 1585 recipes
+[22:08:22] [ServerMain/INFO]: Loaded 1688 advancements
+[22:08:22] [Server thread/INFO]: Starting minecraft server version 26.2
+[22:08:22] [Server thread/INFO]: Loading properties
+[22:08:23] [Server thread/INFO]: This server is running Paper version 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) (Implementing API version 26.2.build.112-stable)
+[22:08:23] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[22:08:23] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[22:08:23] [Server thread/INFO]: Using 4 threads for Netty based IO
+[22:08:23] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
+[22:08:23] [Server thread/INFO]: Default game type: SURVIVAL
+[22:08:23] [Server thread/INFO]: Generating keypair
+[22:08:23] [Server thread/INFO]: Starting Minecraft server on *:25565
+[22:08:23] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[22:08:23] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[22:08:24] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loading 1 libraries... please wait
+[22:08:24] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loaded library /workspaces/TenoSrv/libraries/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar
+[22:08:24] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.11.0
+[22:08:24] [Server thread/INFO]: [ViaVersion] ViaVersion 5.11.0 is now loaded. Registering protocol transformers and injecting...

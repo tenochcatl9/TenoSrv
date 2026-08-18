@@ -3,3 +3,7 @@ curl -fsSL https://packages.playit.gg/install.sh | bash
 sudo playitd --socket-path /run/playit/playitd.sock 
 sudo playit --socket-path /run/playit/playitd.sock 
 java -Xms8G -Xmx12G -Dcom.mojang.eula.agree=true -jar server.jar --nogui --bonusChest
+
+reminded-trustless.tun.ply.gg
+
+

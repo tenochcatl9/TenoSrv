@@ -1,0 +1,13 @@
+=== LOG DE MUERTE ===
+Jugador: OmniXautral
+UUID: f20b02b1-57da-34a4-912f-c54f973b3c4f
+Fecha: 2026-08-18 21:57:18
+Causa: OmniXautral was killed
+Coordenadas: X=33, Y=81, Z=21
+Mundo: world
+Pitch: 19.799986
+Yaw: -108.29999
+
+=== INVENTARIO ===
+
+=== ARMADURA ===
