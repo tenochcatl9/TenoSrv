@@ -1,0 +1,12 @@
+name: PermaDeathPlugin
+version: 1.0-SNAPSHOT
+main: com.permadeath.permadeathplugin.PermaDeathPlugin
+api-version: 1.20
+author: YourName
+description: Plugin de permadeath para Minecraft
+
+commands:
+  permaedeath:
+    description: Activa/desactiva el modo permadeath
+    usage: /permaedeath <on|off>
+    aliases: [perma, pd]
