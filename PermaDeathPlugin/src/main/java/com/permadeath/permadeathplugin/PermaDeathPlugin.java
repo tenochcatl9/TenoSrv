@@ -204,6 +204,10 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         if (!permadeathEnabled) return;
+
+        // El inventario se transfiere manualmente al cofre; las drops vanilla se descartan.
+        event.setKeepInventory(true);
+        event.getDrops().clear();
         
         Player player = event.getEntity();
         Location deathLoc = player.getLocation();
@@ -215,13 +219,9 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
         deathTimes.put(player.getUniqueId(), System.currentTimeMillis());
         deathPlayerNames.put(player.getUniqueId(), player.getName());
         
-        // Reproducir sonidos del tridente (item.trident.thunder) pitch 0 y 2 al mismo tiempo
-        // Ejecutando el comando directamente para obtener el sonido exacto
-        String soundCoords = String.format("%d %d %d", deathLoc.getBlockX(), deathLoc.getBlockY(), deathLoc.getBlockZ());
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), 
-            "playsound minecraft:item.trident.thunder master @a " + soundCoords + " 9 0 1");
-        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), 
-            "playsound minecraft:item.trident.thunder master @a " + soundCoords + " 9 2 1");
+        // El sonido se reproduce solo para jugadores cercanos a la muerte.
+        deathLoc.getWorld().playSound(deathLoc, Sound.ITEM_TRIDENT_THUNDER, 9.0f, 0.0f);
+        deathLoc.getWorld().playSound(deathLoc, Sound.ITEM_TRIDENT_THUNDER, 9.0f, 2.0f);
         
         // Mostrar coordenadas en el chat
         String coords = String.format("X: %d, Y: %d, Z: %d, Mundo: %s", 
@@ -327,9 +327,6 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
         Location chestLoc = deathLoc.clone().add(0, 1, 0);
         chestLoc.getBlock().setType(Material.CHEST);
         
-        // Obtener el estado del cofre DESPUÉS de establecer el tipo
-        org.bukkit.block.Chest chest = (org.bukkit.block.Chest) chestLoc.getBlock().getState();
-        
         // Poner cabeza del jugador encima del cofre
         Location headLoc = chestLoc.clone().add(0, 1, 0);
         headLoc.getBlock().setType(Material.PLAYER_HEAD);
@@ -354,6 +351,9 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
             Location secondChestLoc = chestLoc.clone().add(1, 0, 0);
             secondChestLoc.getBlock().setType(Material.CHEST);
         }
+
+        // Obtener el estado después de colocar ambos cofres para recibir un inventario de 54 slots.
+        org.bukkit.block.Chest chest = (org.bukkit.block.Chest) chestLoc.getBlock().getState();
         
         // Transferir items al cofre
         org.bukkit.inventory.Inventory chestInventory = chest.getInventory();

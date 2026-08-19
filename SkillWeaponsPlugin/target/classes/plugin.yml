@@ -1,7 +1,7 @@
 name: SkillWeaponsPlugin
 version: 1.0-SNAPSHOT
 main: com.skillweapons.skillweaponsplugin.SkillWeaponsPlugin
-api-version: 1.20
+api-version: '26.2'
 author: Xautral/OmniXautral
 description: Plugin de skills para armas en Minecraft
 
