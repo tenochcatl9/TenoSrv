@@ -1,18 +1,7 @@
 name: XautralFunctions
-version: 1.0-SNAPSHOT
+version: 1.0
 main: com.xautral.xautralfunctions.XautralFunctions
-api-version: '26.2'
-author: TenoSrv
-description: Sistema avanzado de funciones para servidores
+api-version: 1.20
 commands:
   xautral:
-    description: Comando principal de XautralFunctions
-    usage: /xautral <composer|trade|villagerattack|tps>
-    permission: xautral.composer
-    aliases: [xau, xautralfunctions, xf]
-permissions:
-  xautral.composer:
-    default: op
-  xautral.op:
-    default: op
-    description: Permite editar trades de aldeanos con shift+click derecho y usar comandos avanzados
+    description: Comando base de Xautral
