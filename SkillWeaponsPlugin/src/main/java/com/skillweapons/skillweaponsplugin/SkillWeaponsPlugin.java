@@ -784,7 +784,6 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
         List<ItemStack> candidates = new ArrayList<>();
         candidates.add(player.getInventory().getItemInMainHand());
         candidates.add(player.getInventory().getItemInOffHand());
-        candidates.addAll(Arrays.asList(player.getInventory().getContents()));
         for (ItemStack item : candidates) {
             if (item == null || item.getType() != Material.SHIELD) continue;
             ItemMeta meta = item.getItemMeta();

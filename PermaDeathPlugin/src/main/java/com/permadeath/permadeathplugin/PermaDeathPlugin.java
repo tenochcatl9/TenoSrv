@@ -436,7 +436,7 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
             return;
         }
         
-        // Revivir al jugador
+        // Revivir al jugador (funciona sin importar el modo permadeath)
         Location deathLoc = deathLocations.get(deadPlayerUUID);
         
         // Consumir el libro
@@ -490,8 +490,6 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
             
             player.sendMessage(ChatColor.YELLOW + "Tienes una muerte pendiente de revivir en: " + coords);
             player.sendMessage(ChatColor.YELLOW + "Encuentra el libro de revivir en el cofre con tu cabeza para volver al juego.");
-            
-            Bukkit.broadcastMessage(ChatColor.YELLOW + player.getName() + " se ha conectado. Murió en: " + coords);
             
             // Cambiar a modo espectador si el permadeath sigue activo
             if (permadeathEnabled) {
