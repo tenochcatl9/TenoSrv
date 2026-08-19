@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/workspaces/TenoSrv"
+      ]
+    },
+    "memory-bank-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@aakarsh-sasi/memory-bank-mcp",
+        "--path",
+        "/workspaces/TenoSrv",
+        "--folder",
+        "memory",
+        "--mode",
+        "code"
+      ]
+    }
+  }
+}
