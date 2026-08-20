@@ -1,0 +1,25 @@
+=== LOG DE MUERTE ===
+Jugador: PlechStyles
+UUID: 30a6bf87-0e42-3387-ae3e-6c60f0e71d95
+Fecha: 2026-08-20 01:39:24
+Causa: PlechStyles was slain by Wolf
+Coordenadas: X=51, Y=66, Z=391
+Mundo: world
+Pitch: 30.299765
+Yaw: -25.950928
+
+=== INVENTARIO ===
+LEAF_LITTER x58
+SPRUCE_LOG x24
+SPRUCE_SAPLING x5
+STICK x2
+PORKCHOP x6
+BEEF x1
+LEATHER x1
+SWEET_BERRIES x54
+BONE x3
+ARROW x4
+PLAYER_HEAD x1
+
+=== ARMADURA ===
+PLAYER_HEAD

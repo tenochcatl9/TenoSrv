@@ -1,0 +1,13 @@
+=== LOG DE MUERTE ===
+Jugador: PlechStyles
+UUID: 30a6bf87-0e42-3387-ae3e-6c60f0e71d95
+Fecha: 2026-08-20 01:29:19
+Causa: PlechStyles was slain by Spider
+Coordenadas: X=-1, Y=77, Z=189
+Mundo: world
+Pitch: 31.199974
+Yaw: 7.500001
+
+=== INVENTARIO ===
+
+=== ARMADURA ===
