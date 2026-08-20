@@ -1,244 +1,107 @@
-[01:42:03] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Microsoft Microsoft-13053558) on Linux 6.8.0-1052-azure (amd64)
-[01:42:03] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
-[01:42:03] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[01:42:03] [ServerMain/INFO]: [PluginInitializerManager] Initialized 9 plugins
-[01:42:03] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (9):
+[15:31:56] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Microsoft Microsoft-13053558) on Linux 6.8.0-1052-azure (amd64)
+[15:31:56] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
+[15:31:56] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[15:31:57] [ServerMain/INFO]: [PluginInitializerManager] Initialized 9 plugins
+[15:31:57] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (9):
  - LoginSecurity (3.3.1), OpenInv (5.3.3), PermaDeathPlugin (1.0-SNAPSHOT), SkillWeaponsPlugin (1.0-SNAPSHOT), SkinsRestorer (15.12.5), ViaBackwards (5.11.0), ViaVersion (5.11.0), VillagerFunctions (1.0), XautralFunctions (1.0)
-[01:42:07] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
-[01:42:07] [ServerMain/WARN]: You have used the Paper command line EULA agreement flag.
-[01:42:07] [ServerMain/WARN]: By using this setting you are indicating your agreement to Mojang's EULA (https://aka.ms/MinecraftEULA).
-[01:42:07] [ServerMain/WARN]: If you do not agree to the above EULA please stop your server and remove this flag immediately.
-[01:42:07] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
-[01:42:08] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 733.9ms
-[01:42:10] [ServerMain/INFO]: Loaded 1585 recipes
-[01:42:10] [ServerMain/INFO]: Loaded 1688 advancements
-[01:42:10] [Server thread/INFO]: Starting minecraft server version 26.2
-[01:42:10] [Server thread/INFO]: Loading properties
-[01:42:10] [Server thread/INFO]: This server is running Paper version 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) (Implementing API version 26.2.build.112-stable)
-[01:42:11] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[01:42:11] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[01:42:11] [Server thread/INFO]: Using 4 threads for Netty based IO
-[01:42:11] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
-[01:42:11] [Server thread/INFO]: Default game type: SURVIVAL
-[01:42:11] [Server thread/INFO]: Generating keypair
-[01:42:11] [Server thread/INFO]: Starting Minecraft server on *:25565
-[01:42:11] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
-[01:42:11] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
-[01:42:12] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loading 1 libraries... please wait
-[01:42:12] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loaded library /workspaces/TenoSrv/libraries/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar
-[01:42:12] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.11.0
-[01:42:12] [Server thread/INFO]: [ViaVersion] ViaVersion 5.11.0 is now loaded. Registering protocol transformers and injecting...
-[01:42:13] [Server thread/INFO]: [ViaBackwards] Loading translations...
-[01:42:13] [Server thread/INFO]: [ViaBackwards] Registering protocols...
-[01:42:13] [Server thread/INFO]: [ViaBackwards] Loading server plugin ViaBackwards v5.11.0
-[01:42:13] [Server thread/INFO]: [SkinsRestorer] Loading server plugin SkinsRestorer v15.12.5
-[01:42:13] [Server thread/INFO]: [OpenInv] Loading server plugin OpenInv v5.3.3
-[01:42:13] [Server thread/INFO]: [SkillWeaponsPlugin] Loading server plugin SkillWeaponsPlugin v1.0-SNAPSHOT
-[01:42:13] [Server thread/INFO]: [PermaDeathPlugin] Loading server plugin PermaDeathPlugin v1.0-SNAPSHOT
-[01:42:13] [Server thread/INFO]: [VillagerFunctions] Loading server plugin VillagerFunctions v1.0
-[01:42:13] [Server thread/INFO]: [XautralFunctions] Loading server plugin XautralFunctions v1.0
-[01:42:13] [Server thread/INFO]: [LoginSecurity] Loading server plugin LoginSecurity v3.3.1
-[01:42:13] [Server thread/INFO]: [SkinsRestorer] Enabling SkinsRestorer v15.12.5
-[01:42:14] [Server thread/INFO]: [SkinsRestorer] Running on Minecraft 26.2.0.
-[01:42:14] [Server thread/INFO]: [SkinsRestorer] Using paper join listener!
-[01:42:14] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[01:42:14] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[01:42:14] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[01:42:14] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[01:42:14] [Server thread/INFO]: Preparing level "world"
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |   SkinsRestorer   |
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |-------------------|
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |  Standalone Mode  |
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Version: 15.12.5
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Commit: 98b9488
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     This is the latest version!
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Do you have issues? Read our troubleshooting guide: https://skinsrestorer.net/docs/troubleshooting
-[01:42:14] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Want to support SkinsRestorer or receive priority support? Become a supporter: https://skinsrestorer.net/pricing
-[01:42:15] [Server thread/INFO]: Loading 25 persistent chunks for level 'minecraft:overworld'...
-[01:42:15] [Server thread/INFO]: Preparing spawn area: 28%
-[01:42:16] [Server thread/INFO]: Prepared spawn area in 989 ms
-[01:42:16] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
-[01:42:16] [Server thread/INFO]: Prepared spawn area in 2 ms
-[01:42:16] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
-[01:42:16] [Server thread/INFO]: Prepared spawn area in 0 ms
-[01:42:16] [Server thread/INFO]: Done preparing level "world" (1.579s)
-[01:42:16] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.11.0
-[01:42:16] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 26.2 (776)
-[01:42:16] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v5.11.0
-[01:42:16] [Server thread/INFO]: [OpenInv] Enabling OpenInv v5.3.3
-[01:42:16] [Server thread/INFO]: [SkillWeaponsPlugin] Enabling SkillWeaponsPlugin v1.0-SNAPSHOT
-[01:42:16] [Server thread/INFO]: [SkillWeaponsPlugin] SkillWeaponsPlugin habilitado!
-[01:42:16] [Server thread/INFO]: [SkillWeaponsPlugin] Sistema de generación de libros en estructuras iniciado.
-[01:42:16] [Server thread/INFO]: [PermaDeathPlugin] Enabling PermaDeathPlugin v1.0-SNAPSHOT
-[01:42:16] [Server thread/INFO]: [PermaDeathPlugin] PermaDeathPlugin habilitado!
-[01:42:16] [Server thread/INFO]: [VillagerFunctions] Enabling VillagerFunctions v1.0
-[01:42:16] [Server thread/INFO]: [XautralFunctions] Enabling XautralFunctions v1.0
-[01:42:16] [Server thread/INFO]: [LoginSecurity] Enabling LoginSecurity v3.3.1
-[01:42:16] [Server thread/INFO]: [LoginSecurity] Loading base translations from "en_us"
-[01:42:16] [Server thread/INFO]: [LoginSecurity] Loading specified translations from "en_us"
-[01:42:16] [Server thread/INFO]: [LoginSecurity] Registering commands...
-[01:42:16] [Server thread/INFO]: [LoginSecurity] Registering listeners...
-[01:42:16] [Server thread/WARN]: [LoginSecurity] "LoginSecurity v3.3.1" has registered a listener for org.spigotmc.event.player.PlayerSpawnLocationEvent on method "public void com.lenis0012.bukkit.loginsecurity.modules.general.PlayerListener.maskPlayerLocation(org.spigotmc.event.player.PlayerSpawnLocationEvent)", but the event is Deprecated. "Listening to this event causes the player to be created early. Using the player from this event will result in undefined behavior. Prefer AsyncPlayerSpawnLocationEvent."; please notify the authors [lenis0012].
-[01:42:16] [Server thread/INFO]: [LoginSecurity] Using 1.13+ map captcha renderer
-[01:42:16] [Server thread/INFO]: [spark] Starting background profiler...
-[01:42:17] [Server thread/INFO]: Starting remote control listener
-[01:42:17] [Server thread/INFO]: Thread RCON Listener started
-[01:42:17] [Server thread/INFO]: RCON running on 0.0.0.0:25575
-[01:42:17] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[01:42:17] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[01:42:17] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[01:42:17] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[01:42:17] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[01:42:17] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[01:42:17] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[01:42:17] [Server thread/INFO]: Running delayed init tasks
-[01:42:17] [Server thread/INFO]: Done (15.409s)! For help, type "help"
-[01:42:17] [Craft Scheduler Thread - 2 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
-[01:42:19] [User Authenticator #0/INFO]: UUID of player OmniXautral is f20b02b1-57da-34a4-912f-c54f973b3c4f
-[01:42:19] [Server thread/INFO]: [HorriblePlayerLoginEventHack] You have plugins listening to the PlayerLoginEvent, this will cause re-configuration APIs to be unavailable: [LoginSecurity]
-[01:42:21] [Server thread/INFO]: OmniXautral joined the game
-[01:42:21] [Server thread/INFO]: OmniXautral[/127.132.52.52:60183] logged in with entity id 8 at ([minecraft:overworld]87.49322336945535, 65.20000004768372, 406.6377205103411)
-[01:42:29] [User Authenticator #1/INFO]: UUID of player PlechStyles is 30a6bf87-0e42-3387-ae3e-6c60f0e71d95
-[01:42:30] [Server thread/INFO]: PlechStyles joined the game
-[01:42:30] [Server thread/INFO]: PlechStyles[/127.200.167.61:53505] logged in with entity id 227 at ([minecraft:overworld]95.20449663161439, 64.24918707874468, 405.1777579292293)
-[01:42:36] [Server thread/INFO]: PlechStyles has made the advancement [Best Friends Forever]
-[01:42:38] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> me crispa los nervios ver a blime
-[01:42:43] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> soy nate y digo
-[01:42:52] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> saiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-[01:43:00] [RCON Listener #1/INFO]: Thread RCON Client /127.0.0.1 started
-[01:43:00] [Server thread/INFO]: Named entity Mannequin['Nate'/3, uuid='1badd9d6-b726-45dc-9eaa-d1a35502b17f', l='ServerLevel[world]', x=-1.07, y=70.00, z=-6.32, cpos=[-1, -1], tl=0, v=true] died: Nate was killed
-[01:43:00] [Server thread/INFO]: Named entity Mannequin['Nate'/1, uuid='727a66a9-51ee-437c-bba8-47983ed517a3', l='ServerLevel[world]', x=0.70, y=0.00, z=-2.57, cpos=[0, -1], tl=845, v=true] died: Nate was killed
-[01:43:00] [Server thread/INFO]: [Rcon: Killed 2 entities]
-[01:43:01] [Server thread/INFO]: [Rcon: Summoned new Nate]
-[01:43:01] [Server thread/INFO]: [Rcon: Applied effect Resistance to Nate]
-[01:43:04] [Server thread/INFO]: [Not Secure] [Nate] eh, eso es genial! ya estamos todos juntos, ¿eh? ¿y qué estás haciendo?
-[01:43:06] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> ya lo invoque
-[01:43:17] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> Nate, este PlechStyles te papeó, te vas a dejar?
-[01:43:20] [Server thread/INFO]: OmniXautral issued server command: /weather clear
-[01:43:20] [Server thread/INFO]: [OmniXautral: Set the weather to clear]
-[01:43:21] [Server thread/INFO]: [Not Secure] [Nate] Eh... Tengo ganas de seguir jugando. ¿Y tú? ¿Te papeaste al PlechStyles?
-[01:43:26] [Server thread/INFO]: OmniXautral issued server command: /perma off
-[01:43:26] [Server thread/INFO]: [PermaDeathPlugin] Permadeath desactivado por OmniXautral
-[01:43:34] [Server thread/INFO]: OmniXautral issued server command: /tp PlechStyles
-[01:43:34] [Server thread/INFO]: [OmniXautral: Teleported OmniXautral to PlechStyles]
-[01:43:49] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> cabEZÓN El plechete
-[01:44:16] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> tengo un serio problema mental
-[01:44:19] [Server thread/INFO]: [Not Secure] [Nate] ¿Qué te pasó? ¿No te papea? ¿No sabes qué hacer?
-[01:44:25] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> siguele putito eh
-[01:44:30] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> pinche Nate se me pone al tiro
-[01:44:33] [Server thread/INFO]: [Not Secure] [Nate] Eh, a veces se me ocurre algo nuevo en un momento, y ahí padez.
-[01:44:45] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> soy nate y digo que volcon2 usa xray
-[01:44:49] [Server thread/INFO]: [Not Secure] [Nate] mmm, xray... eh, eso parece un recurso muy útil para mejorar la velocidad del juego. Mmmm, eso sí, eso es algo que los jugadores siempre hablan sobre.
-[01:44:53] [Server thread/INFO]: PlechStyles has made the advancement [Stone Age]
-[01:44:56] [Server thread/INFO]: [Not Secure] [Nate] Eso es genial! Stone Age significa que estás en un nivel de construcción más avanzado. ¡Qué emocionante!
-[01:44:58] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> iiiii Nate esta a favor del xray
-[01:45:03] [Server thread/INFO]: [Not Secure] [Nate] eh... ¿De qué se trata? Me pongo a disfrutar de la comedia, ¿eh?
-[01:45:11] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> nate es volcon
-[01:45:14] [Server thread/INFO]: [Not Secure] [Nate] Volcon es volcon.
-[01:45:16] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> con razon es femboy
-[01:45:32] [Server thread/INFO]: PlechStyles has made the advancement [Getting an Upgrade]
-[01:45:34] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> si, PlechStyles Nate no recuerda nada, no recuerda ni cuando se lamentó de que que hizo mal cuando ceré el server, ni que lo tumbaba apropósito, el no recuerda nada de eso
-[01:45:36] [Server thread/INFO]: [Not Secure] [Nate] Mmm... eh... estoy asumiendo. Puede haber algunas diferencias en cómo se cuenta la victoria en las dos versiones, ¿eh?
-[01:45:45] [Server thread/INFO]: [Not Secure] [Nate] Eso suena muy frustrante. Es raro cuando los plech a la gente no la recordan, ¿verdad? ¿No es cierto? ¿PlechStyles ya recuperó la memoria?
-[01:45:58] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> sio
-[01:46:10] [Server thread/INFO]: OmniXautral issued server command: /sw give
-[01:46:13] [Server thread/INFO]: OmniXautral issued server command: /sw give black-spiral
-[01:46:25] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> mmhnh- cobre q rico
-[01:46:32] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> no es mmhnh
-[01:46:36] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> es mmh~
-[01:46:39] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> imvecil
-[01:46:44] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> kmo sabes
-[01:46:46] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> :eyes:
-[01:46:46] [Server thread/INFO]: OmniXautral issued server command: /enchant OmniXautral minecraft:quick_charge 3
-[01:46:46] [Server thread/INFO]: [OmniXautral: Applied enchantment Quick Charge III to OmniXautral's item]
-[01:46:51] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> por que roleo :v
-[01:46:54] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> no no es cierto q pdo
-[01:47:11] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> los skibidi dicen toilet
-[01:47:17] [Server thread/WARN]: [ca.spottedleaf.moonrise.patches.chunk_system.level.entity.ChunkEntitySlices] [ca.spottedleaf.moonrise.patches.chunk_system.level.entity.ChunkEntitySlices] Serialization errors:
-chunk@[-1, -1]Mannequin['Nate'/3, uuid='1badd9d6-b726-45dc-9eaa-d1a35502b17f', l='ServerLevel[world]', x=-1.07, y=70.00, z=-6.32, cpos=[-1, -1], tl=0, v=true]: Failed to encode value 'DYING' to field 'pose': Invalid pose: dying
-[01:47:26] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> desde cuando se pueden usar sapling como combustible
-[01:47:31] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> no sabías?
-[01:47:38] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> neta no sabia
-[01:47:43] [Server thread/INFO]: [Not Secure] [Nate] Sí, eso es correcto. PlechStyles logró Getting an Upgrade en la Stone Age.
-[01:47:52] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> dije neta no nata
-[01:47:55] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> when: estas platicando tranquilamente con el Nate
-[01:48:08] [Server thread/INFO]: [Not Secure] [Nate] pues... el PlechStyles el no se fija que las cosas van a los dos. El está en otro universo, un universo donde no se puede perder el tiempo, no se puede quejarse de que el sol está demasiado brillante
-[01:48:10] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> but: el cabron le dan recuerdos de vietnam de que Xautral lo apago y remplazo una y otar vez y apaga el server
-[01:48:28] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> oye nate existe un omnixautral c-137?
-[01:48:34] [Server thread/INFO]: [Not Secure] [Nate] Mmm... Sí, lo conozco, es un tipo de avión muy grande. Pasa muy alto. Mmmm...
-[01:48:35] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> o un doofus OmniXautral?
-[01:48:44] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> o un doofus OmniXautral? nate
-[01:48:45] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> ¿?
-[01:48:49] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> PlechStyles mira esto
-[01:48:51] [Server thread/INFO]: [Not Secure] [Nate] Mmm... eh... sí, una especie de autral de dos patas con un c-137 en la espalda. Gracias!
-[01:48:57] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> rick and morty OmniXautral
-[01:48:58] [Server thread/INFO]: [Not Secure] [Nate] Mmm, ¿Sí? No estoy muy seguro, ¿qué me dice?
-[01:49:00] [Server thread/INFO]: OmniXautral issued server command: /summon minecraft:zombie ~ ~ ~ {NoAI:1b}
-[01:49:00] [Server thread/INFO]: [OmniXautral: Summoned new Zombie]
-[01:49:16] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> trix-bow
-[01:49:19] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> no
-[01:49:20] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> black spiral
-[01:49:25] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> pero que buen nombre
-[01:49:38] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> esto si fue con plugins
-[01:49:39] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> no con comandos
-[01:49:41] [Async Chat Thread - #0/INFO]: [Not Secure] <PlechStyles> OHH PONLE MULTI SHOT Y SERIA TRI Y X-BOW OSEA TRIX-BOW OUIWHORIDWHQOEDIWEHF
-[01:49:50] [Async Chat Thread - #0/INFO]: [Not Secure] <OmniXautral> haber
-[01:50:01] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> NOOOOOOOOO LOBITO
-[01:50:02] [Server thread/INFO]: [Not Secure] [Nate] Sí, lo está. Parece que no ha dicho nada durante todo el tiempo que estás hablando. Mmm... ¿Había algo en lo que se me ocurrió? Sí, ahora recuerdo. Había que hacer un resumen de algo que mencionó un j
-[01:50:21] [Server thread/INFO]: OmniXautral issued server command: /effect give @n[type=minecraft:wolf] minecraft:resistance infinite 2 true
-[01:50:21] [Server thread/INFO]: [OmniXautral: Applied effect Resistance to Wolf]
-[01:50:50] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> vamos a ver dijo el cieg
-[01:51:02] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> si funciona
-[01:51:06] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> alv
-[01:51:16] [Server thread/INFO]: OmniXautral issued server command: /summon minecraft:iron_golem
-[01:51:16] [Server thread/INFO]: [OmniXautral: Summoned new Iron Golem]
-[01:51:27] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> se lo hacen mierdaaaa
-[01:52:14] [Server thread/INFO]: OmniXautral issued server command: /effect give @n[type=minecraft:wolf] minecraft:instant_health 25 2 true
-[01:52:14] [Server thread/INFO]: [OmniXautral: Applied effect Instant Health to Wolf]
-[01:52:17] [Server thread/WARN]: [ca.spottedleaf.moonrise.patches.chunk_system.level.entity.ChunkEntitySlices] [ca.spottedleaf.moonrise.patches.chunk_system.level.entity.ChunkEntitySlices] Serialization errors:
-chunk@[-1, -1]Mannequin['Nate'/3, uuid='1badd9d6-b726-45dc-9eaa-d1a35502b17f', l='ServerLevel[world]', x=-1.07, y=70.00, z=-6.32, cpos=[-1, -1], tl=0, v=true]: Failed to encode value 'DYING' to field 'pose': Invalid pose: dying
-[01:52:22] [Server thread/INFO]: PlechStyles was impaled on a stalagmite
-[01:52:27] [Server thread/INFO]: [Not Secure] [Nate] Ooh, eso suena interesante. ¿Qué jugador fue el que murió? ¿Saben si fue un pez de barro o un alga?
-[01:52:30] [Server thread/INFO]: OmniXautral issued server command: /tp PlechStyles OmniXautral
-[01:52:30] [Server thread/INFO]: [OmniXautral: Teleported PlechStyles to OmniXautral]
-[01:52:35] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> VALLANSE BIEN A LA VOLCON
-[01:52:39] [Async Chat Thread - #1/INFO]: [Not Secure] <PlechStyles> uhh me pase
-[01:52:46] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> no carnal eso no se dice
-[01:52:52] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> eso ya fue persona
-[01:52:58] [Server thread/INFO]: OmniXautral issued server command: /effect give OmniXautral minecraft:resistance infinite 25 true
-[01:52:58] [Server thread/INFO]: [OmniXautral: Applied effect Resistance to OmniXautral]
-[01:53:12] [Server thread/INFO]: OmniXautral issued server command: /sw give airdash
-[01:53:19] [Server thread/INFO]: [OmniXautral: Set own game mode to Survival Mode]
-[01:53:35] [Server thread/INFO]: OmniXautral issued server command: /effect give @n[type=minecraft:wolf] minecraft:instant_health 25 2 true
-[01:53:35] [Server thread/INFO]: [OmniXautral: Applied effect Instant Health to Wolf]
-[01:53:49] [Server thread/INFO]: OmniXautral issued server command: /give OmniXautral arrow 64
-[01:53:49] [Server thread/INFO]: [OmniXautral: Gave 64 [Arrow] to OmniXautral]
-[01:54:12] [Server thread/INFO]: PlechStyles was kicked due to keepalive timeout!
-[01:54:12] [Server thread/INFO]: PlechStyles lost connection: Timed out
-[01:54:12] [Server thread/INFO]: PlechStyles left the game
-[01:54:18] [Server thread/INFO]: [Not Secure] [Nate] Mmm...eh...no sé, ¿por qué abandona?
-[01:54:21] [User Authenticator #2/INFO]: UUID of player PlechStyles is 30a6bf87-0e42-3387-ae3e-6c60f0e71d95
-[01:54:30] [Server thread/INFO]: PlechStyles joined the game
-[01:54:30] [Server thread/INFO]: PlechStyles[/127.200.167.61:47555] logged in with entity id 3434 at ([minecraft:overworld]-0.9449191800914832, 70.20000004768372, 292.69999998807907)
-[01:54:36] [Server thread/INFO]: [Not Secure] [Nate] Eso no es lo mismo. PlechStyles se alejó del lugar, mientras que se unió a él nuevamente.
-[01:55:04] [Server thread/INFO]: PlechStyles was kicked due to keepalive timeout!
-[01:55:04] [Server thread/INFO]: PlechStyles lost connection: Timed out
-[01:55:04] [Server thread/INFO]: PlechStyles left the game
-[01:55:07] [User Authenticator #3/INFO]: UUID of player PlechStyles is 30a6bf87-0e42-3387-ae3e-6c60f0e71d95
-[01:55:08] [Server thread/INFO]: PlechStyles joined the game
-[01:55:08] [Server thread/INFO]: PlechStyles[/127.200.167.61:43683] logged in with entity id 3510 at ([minecraft:overworld]-7.399906312549898, 57.0, 284.23100904421756)
-[01:55:10] [Server thread/INFO]: [Not Secure] [Nate] Oye, no sé que se ha unido o ha abandonado el servidor. ¿PlechStyles?
-[01:55:11] [Async Chat Thread - #3/INFO]: [Not Secure] <OmniXautral> *meme del albert einsetin con el micola pesta*
-[01:55:17] [Server thread/INFO]: [Not Secure] [Nate] PlechStyles es un doofus que se ha unido al servidor.
-[01:55:24] [Server thread/INFO]: [Not Secure] [Nate] Ah, eso son las míticas frases de Einstein! Siempre decía cosas como eso.
-[01:55:25] [Async Chat Thread - #3/INFO]: [Not Secure] <OmniXautral> cffff
-[01:55:35] [Server thread/INFO]: [Not Secure] [Nate] eh... Mmm, no recuerdo cuando lo hizo... Mmm, no... No, no me acuerdo. Mmm, no, no, no... Mmmm. Mmmm... Mmm. Mmmm... Mmmm... Mmm, no sé. Mmmm.
-[01:55:44] [Server thread/INFO]: PlechStyles was kicked due to keepalive timeout!
-[01:55:44] [Server thread/INFO]: PlechStyles lost connection: Timed out
-[01:55:44] [Server thread/INFO]: PlechStyles left the game
-[01:55:50] [Server thread/INFO]: [Not Secure] [Nate] mmm... Oh, se ha unido de nuevo, parece que sigue pasando a veces.
+[15:32:02] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[15:32:02] [ServerMain/WARN]: You have used the Paper command line EULA agreement flag.
+[15:32:02] [ServerMain/WARN]: By using this setting you are indicating your agreement to Mojang's EULA (https://aka.ms/MinecraftEULA).
+[15:32:02] [ServerMain/WARN]: If you do not agree to the above EULA please stop your server and remove this flag immediately.
+[15:32:02] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[15:32:03] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 925.6ms
+[15:32:05] [ServerMain/INFO]: Loaded 1585 recipes
+[15:32:05] [ServerMain/INFO]: Loaded 1688 advancements
+[15:32:05] [Server thread/INFO]: Starting minecraft server version 26.2
+[15:32:05] [Server thread/INFO]: Loading properties
+[15:32:05] [Server thread/INFO]: This server is running Paper version 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) (Implementing API version 26.2.build.112-stable)
+[15:32:05] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[15:32:06] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[15:32:06] [Server thread/INFO]: Using 4 threads for Netty based IO
+[15:32:06] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
+[15:32:06] [Server thread/INFO]: Default game type: SURVIVAL
+[15:32:06] [Server thread/INFO]: Generating keypair
+[15:32:06] [Server thread/INFO]: Starting Minecraft server on *:25565
+[15:32:06] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[15:32:06] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[15:32:07] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loading 1 libraries... please wait
+[15:32:07] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loaded library /workspaces/TenoSrv/libraries/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar
+[15:32:07] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.11.0
+[15:32:07] [Server thread/INFO]: [ViaVersion] ViaVersion 5.11.0 is now loaded. Registering protocol transformers and injecting...
+[15:32:08] [Server thread/INFO]: [ViaBackwards] Loading translations...
+[15:32:08] [Server thread/INFO]: [ViaBackwards] Registering protocols...
+[15:32:09] [Server thread/INFO]: [ViaBackwards] Loading server plugin ViaBackwards v5.11.0
+[15:32:09] [Server thread/INFO]: [SkinsRestorer] Loading server plugin SkinsRestorer v15.12.5
+[15:32:09] [Server thread/INFO]: [OpenInv] Loading server plugin OpenInv v5.3.3
+[15:32:09] [Server thread/INFO]: [SkillWeaponsPlugin] Loading server plugin SkillWeaponsPlugin v1.0-SNAPSHOT
+[15:32:09] [Server thread/INFO]: [PermaDeathPlugin] Loading server plugin PermaDeathPlugin v1.0-SNAPSHOT
+[15:32:09] [Server thread/INFO]: [VillagerFunctions] Loading server plugin VillagerFunctions v1.0
+[15:32:09] [Server thread/INFO]: [XautralFunctions] Loading server plugin XautralFunctions v1.0
+[15:32:09] [Server thread/INFO]: [LoginSecurity] Loading server plugin LoginSecurity v3.3.1
+[15:32:09] [Server thread/INFO]: [SkinsRestorer] Enabling SkinsRestorer v15.12.5
+[15:32:09] [Server thread/INFO]: [SkinsRestorer] Running on Minecraft 26.2.0.
+[15:32:10] [Server thread/INFO]: [SkinsRestorer] Using paper join listener!
+[15:32:10] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[15:32:10] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[15:32:10] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[15:32:10] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[15:32:10] [Server thread/INFO]: Preparing level "world"
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |   SkinsRestorer   |
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |-------------------|
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |  Standalone Mode  |
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Version: 15.12.5
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Commit: 98b9488
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     This is the latest version!
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Do you have issues? Read our troubleshooting guide: https://skinsrestorer.net/docs/troubleshooting
+[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Want to support SkinsRestorer or receive priority support? Become a supporter: https://skinsrestorer.net/pricing
+[15:32:11] [Server thread/INFO]: Loading 25 persistent chunks for level 'minecraft:overworld'...
+[15:32:11] [Server thread/INFO]: Preparing spawn area: 28%
+[15:32:11] [Server thread/INFO]: Preparing spawn area: 28%
+[15:32:12] [Server thread/INFO]: Prepared spawn area in 1168 ms
+[15:32:12] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[15:32:12] [Server thread/INFO]: Prepared spawn area in 0 ms
+[15:32:12] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[15:32:12] [Server thread/INFO]: Prepared spawn area in 1 ms
+[15:32:12] [Server thread/INFO]: Done preparing level "world" (2.063s)
+[15:32:12] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.11.0
+[15:32:12] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 26.2 (776)
+[15:32:12] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v5.11.0
+[15:32:12] [Server thread/INFO]: [OpenInv] Enabling OpenInv v5.3.3
+[15:32:12] [Server thread/INFO]: [SkillWeaponsPlugin] Enabling SkillWeaponsPlugin v1.0-SNAPSHOT
+[15:32:12] [Server thread/INFO]: [SkillWeaponsPlugin] SkillWeaponsPlugin habilitado!
+[15:32:12] [Server thread/INFO]: [SkillWeaponsPlugin] Sistema de generación de libros en estructuras iniciado.
+[15:32:12] [Server thread/INFO]: [PermaDeathPlugin] Enabling PermaDeathPlugin v1.0-SNAPSHOT
+[15:32:12] [Server thread/INFO]: [PermaDeathPlugin] PermaDeathPlugin habilitado!
+[15:32:12] [Server thread/INFO]: [VillagerFunctions] Enabling VillagerFunctions v1.0
+[15:32:12] [Server thread/INFO]: [XautralFunctions] Enabling XautralFunctions v1.0
+[15:32:12] [Server thread/INFO]: [XautralFunctions] XautralFunctions mejorado activado.
+[15:32:12] [Server thread/INFO]: [LoginSecurity] Enabling LoginSecurity v3.3.1
+[15:32:12] [Server thread/INFO]: [LoginSecurity] Loading base translations from "en_us"
+[15:32:12] [Server thread/INFO]: [LoginSecurity] Loading specified translations from "en_us"
+[15:32:12] [Server thread/INFO]: [LoginSecurity] Registering commands...
+[15:32:12] [Server thread/INFO]: [LoginSecurity] Registering listeners...
+[15:32:12] [Server thread/WARN]: [LoginSecurity] "LoginSecurity v3.3.1" has registered a listener for org.spigotmc.event.player.PlayerSpawnLocationEvent on method "public void com.lenis0012.bukkit.loginsecurity.modules.general.PlayerListener.maskPlayerLocation(org.spigotmc.event.player.PlayerSpawnLocationEvent)", but the event is Deprecated. "Listening to this event causes the player to be created early. Using the player from this event will result in undefined behavior. Prefer AsyncPlayerSpawnLocationEvent."; please notify the authors [lenis0012].
+[15:32:12] [Server thread/INFO]: [LoginSecurity] Using 1.13+ map captcha renderer
+[15:32:13] [Server thread/INFO]: [spark] Starting background profiler...
+[15:32:13] [Server thread/INFO]: Starting remote control listener
+[15:32:13] [Server thread/INFO]: Thread RCON Listener started
+[15:32:13] [Server thread/INFO]: RCON running on 0.0.0.0:25575
+[15:32:13] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[15:32:14] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[15:32:14] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[15:32:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[15:32:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[15:32:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[15:32:14] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[15:32:14] [Server thread/INFO]: Running delayed init tasks
+[15:32:14] [Server thread/INFO]: Done (18.586s)! For help, type "help"
+[15:32:14] [Craft Scheduler Thread - 3 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
+[15:32:20] [User Authenticator #0/INFO]: UUID of player OmniXautral is f20b02b1-57da-34a4-912f-c54f973b3c4f
+[15:32:20] [Server thread/INFO]: [HorriblePlayerLoginEventHack] You have plugins listening to the PlayerLoginEvent, this will cause re-configuration APIs to be unavailable: [LoginSecurity]
+[15:32:25] [Server thread/INFO]: OmniXautral joined the game
+[15:32:26] [Server thread/INFO]: OmniXautral[/127.132.52.52:57893] logged in with entity id 16 at ([minecraft:overworld]7405.701767049107, 82.74347086649348, 8851.973352012843)

@@ -8,9 +8,13 @@ import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 
 import javax.sound.midi.*;
 import java.io.File;
@@ -35,12 +39,17 @@ public class XautralFunctions extends JavaPlugin implements Listener, TabComplet
     private final Map<UUID, TradeSession> trades = new HashMap<>();
     private final Map<UUID, MidiPlayer> midiPlayers = new HashMap<>();
 
-    // Patrones para censura
+    // Patrones para censura mejorados
     private static final Pattern LINK_PATTERN = Pattern.compile(
-            "(?i)(?:https?://)?(?:[a-z0-9-]+\\.)+(?:me|gg|com|net|org|es|tk|cf|ga|gq|ml|xyz|io|lat|info|biz|site|online|tech|shop|store)|" +
-            "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b|" +
-            "\\b(?:playit|aternos|tcp|ngrok|localhost|127\\.0\\.0\\.1)\\b"
+            "(?i)(?:https?://|ftp://)?(?:[a-z0-9-]+\\.)+(?:me|gg|com|net|org|es|tk|cf|ga|gq|ml|xyz|io|lat|info|biz|site|online|tech|shop|store|cc|co|us|uk|ca|au|de|fr|it|br|ru|in|jp|cn|kr|mx|ar|cl|pe|ve|co|ec|py|uy|bo|pa|cr|gt|hn|sv|ni|do|pr|cu|ht|jm|tt|bb|gd|lc|vc|ag|dm|bs|ai|bm|ky|vg|ms|tc|bq|cw|sx|gf|pf|nc|as|gu|mp|vi|um|fm|mh|pw|ki|nr|tv|to|ws|fj|vu|sb|pg|nu|ck|to|wf|as|io|sh|ac|gg|je|im|gs|tf|aq|bv|hm|nr|nf|cx|cc|ke|tz|ug|rw|bi|et|so|dj|er|sd|ss|eg|ly|tn|dz|ma|eh|ml|ne|ng|td|cm|cf|ga|cd|cg|ao|gw|st|sn|gm|sl|lr|ci|gh|tg|bj|ne|bf|md|mg|mu|sc|km|yt|re|tz|ke|ug|rw|bi|et|so|dj|er|sd|ss|eg|ly|tn|dz|ma|eh|ml|ne|ng|td|cm|cf|ga|cd|cg|ao|gw|st|sn|gm|sl|lr|ci|gh|tg|bj|ne|bf|md|mg|mu|sc|km|yt|re)|" +
+            "\\b(?:\\d{1,3}\\.){3}\\d{1,3}(?::\\d{1,5})?\\b|" +
+            "\\b(?:playit\\.gg|aternos\\.me|aternos\\.com|aternos\\.net|tcp\\.gg|ngrok\\.io|ngrok\\.com|ngrok\\.free\\.bnc\\.us|falixnodes\\.net|falix\\.gg|minehut\\.gg|minehut\\.com|server\\.pro|ploudos\\.com|skynode\\.pro|skynode\\.gg|alastyr\\.com|localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0|192\\.168\\.|10\\.|172\\.(1[6-9]|2[0-9]|3[01])\\.)|" +
+            "\\b(?:[a-z0-9-]+\\.(?:playit|aternos|tcp|ngrok|falix|falixnodes|minehut|dynu|no-ip|ddns|freedns afraid|dnsdynamic|duckdns| afraid)\\.(?:me|gg|com|net|org|io|pro))\\b|" +
+            "\\b(?:discord\\.gg|discord\\.com/invite|discord\\.io|dsc\\.gg|dis\\.gg)\\b|" +
+            "\\b(?:youtube\\.com|youtu\\.be|twitch\\.tv|facebook\\.com|twitter\\.com|x\\.com|instagram\\.com|tiktok\\.com|reddit\\.com)\\b"
     );
+    
+    private static final Pattern SPECIAL_CHAR_PATTERN = Pattern.compile("&(?![a-f0-9k-or])");
 
     @Override
     public void onEnable() {
@@ -145,12 +154,32 @@ public class XautralFunctions extends JavaPlugin implements Listener, TabComplet
     public void onChat(AsyncPlayerChatEvent event) {
         String original = event.getMessage();
         String filtered = XauFunctions.obfuscateLinks(original);
+        filtered = XauFunctions.obfuscateSpecialChars(filtered);
         
         if (!original.equals(filtered)) {
             event.getPlayer().sendMessage(color("&c[Filtro] Evita compartir enlaces o IPs sospechosas."));
+            
+            // Alertar a moderadores
+            final String finalOriginal = original;
+            final String finalFiltered = filtered;
+            final String playerName = event.getPlayer().getName();
+            Bukkit.getScheduler().runTask(this, () -> {
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    if (player.hasPermission("xautral.op")) {
+                        player.sendMessage(color("&c[ALERTA] &e" + playerName + " &cintentó enviar: &f" + finalOriginal));
+                        player.sendMessage(color("&c[ALERTA] &cMensaje filtrado: &f" + finalFiltered));
+                    }
+                }
+            });
         }
         
         event.setMessage(color(filtered));
+    }
+
+    @EventHandler
+    public void onKick(PlayerKickEvent event) {
+        String plain = PlainTextComponentSerializer.plainText().serialize(event.reason());
+        event.reason(LegacyComponentSerializer.legacyAmpersand().deserialize(plain));
     }
 
     private void startLagMonitorTask() {
@@ -181,7 +210,7 @@ public class XautralFunctions extends JavaPlugin implements Listener, TabComplet
         } catch (Exception ignored) {}
     }
 
-    private String color(String s) { return ChatColor.translateAlternateColorCodes('&', s); }
+    private String color(String s) { return XauFunctions.color(s); }
 
     // Clase interna para utilidades de filtrado
     public static class XauFunctions {
@@ -198,10 +227,26 @@ public class XautralFunctions extends JavaPlugin implements Listener, TabComplet
             sb.append(input.substring(last));
             return sb.toString();
         }
+        
+        public static String obfuscateSpecialChars(String input) {
+            Matcher m = SPECIAL_CHAR_PATTERN.matcher(input);
+            StringBuilder sb = new StringBuilder();
+            int last = 0;
+            while (m.find()) {
+                sb.append(input, last, m.start());
+                sb.append("§");
+                last = m.end();
+            }
+            sb.append(input.substring(last));
+            return sb.toString();
+        }
+
+        public static String color(String input) {
+            return ChatColor.translateAlternateColorCodes('&', input);
+        }
 
         private static String obfuscate(String s) {
-            if (s.length() <= 3) return "***";
-            return s.charAt(0) + "***" + s.charAt(s.length() - 1);
+            return "&k" + s + "&r";
         }
     }
 

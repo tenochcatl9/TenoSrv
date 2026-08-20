@@ -94,6 +94,8 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
     private NamespacedKey ANTI_KINETIC_BOOK_KEY;
     private NamespacedKey ELYTRA_SHULKER_KEY;
     private NamespacedKey ELYTRA_SHULKER_BOOK_KEY;
+    private NamespacedKey THUNDER_FANGS_KEY;
+    private NamespacedKey THUNDER_FANGS_BOOK_KEY;
 
     @Override
     public void onEnable() {
@@ -130,6 +132,8 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
         ANTI_KINETIC_BOOK_KEY = new NamespacedKey(this, "anti_kinetic_skill_book");
         ELYTRA_SHULKER_KEY = new NamespacedKey(this, "elytra_shulker_skill");
         ELYTRA_SHULKER_BOOK_KEY = new NamespacedKey(this, "elytra_shulker_skill_book");
+        THUNDER_FANGS_KEY = new NamespacedKey(this, "thunder_fangs_skill");
+        THUNDER_FANGS_BOOK_KEY = new NamespacedKey(this, "thunder_fangs_skill_book");
         startCooldownBarTask();
         
         // Generar libros de skills en estructuras existentes
@@ -157,7 +161,7 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
             Player player = (Player) sender;
 
             if (args.length == 0) {
-                player.sendMessage(ChatColor.RED + "Uso: /sw give [beam|black-spiral|sweep|kilo|telekinesis|spade|elektrofollow|trajectory|hellishdomino|omnipresency|airdash|low-c|anti-kinetic]");
+                player.sendMessage(ChatColor.RED + "Uso: /sw give [beam|black-spiral|sweep|kilo|telekinesis|spade|elektrofollow|trajectory|hellishdomino|omnipresency|airdash|low-c|anti-kinetic|thunder-fangs]");
                 return true;
             }
 
@@ -183,7 +187,7 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
                 return Arrays.asList("give");
             }
             if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
-                return Arrays.asList("beam", "black-spiral", "sweep", "kilo", "telekinesis", "spade", "elektrofollow", "trajectory", "hellishdomino", "omnipresency", "airdash", "low-c", "anti-kinetic", "elytra-shulker");
+                return Arrays.asList("beam", "black-spiral", "sweep", "kilo", "telekinesis", "spade", "elektrofollow", "trajectory", "hellishdomino", "omnipresency", "airdash", "low-c", "anti-kinetic", "elytra-shulker", "thunder-fangs");
             }
         }
         return null;
@@ -304,6 +308,10 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
             meta.setDisplayName(ChatColor.DARK_PURPLE + "Libro de Skill: Elytra Shulker");
             meta.setLore(Arrays.asList(ChatColor.GRAY + "Al golpear planeando, dispara 10 balas de shulker.", "", ChatColor.YELLOW + "Combinalo con una elytra en un yunque."));
             meta.getPersistentDataContainer().set(ELYTRA_SHULKER_BOOK_KEY, PersistentDataType.BYTE, (byte) 1);
+        } else if (enchantType.equalsIgnoreCase("thunder-fangs") || enchantType.equalsIgnoreCase("thunderfangs")) {
+            meta.setDisplayName(ChatColor.YELLOW + "Libro de Skill: Thunder Fangs");
+            meta.setLore(Arrays.asList(ChatColor.GRAY + "Los colmillos de evocador invocan rayos.", ChatColor.GRAY + "Cada colmillo que golpea genera un rayo.", "", ChatColor.YELLOW + "Combinalo con un tridente en un yunque."));
+            meta.getPersistentDataContainer().set(THUNDER_FANGS_BOOK_KEY, PersistentDataType.BYTE, (byte) 1);
         } else {
             player.sendMessage(ChatColor.RED + "Skill no válida. Usa una skill disponible en el tab-complete.");
             return;
@@ -567,6 +575,15 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
         elytra.setItemMeta(meta);
     }
 
+    private void applyThunderFangsSkill(ItemStack trident) {
+        ItemMeta meta = trident.getItemMeta();
+        if (meta == null) return;
+        meta.getPersistentDataContainer().set(THUNDER_FANGS_KEY, PersistentDataType.STRING, "true");
+        meta.setLore(appendLore(meta, ChatColor.DARK_PURPLE + "Skill: Thunder Fangs", ChatColor.GRAY + "Colmillos invocan rayos al golpear"));
+        meta.addEnchant(Enchantment.CHANNELING, 1, true);
+        trident.setItemMeta(meta);
+    }
+
     private List<String> appendLore(ItemMeta meta, String... lines) {
         List<String> lore = meta.hasLore() ? new ArrayList<>(meta.getLore()) : new ArrayList<>();
         lore.addAll(Arrays.asList(lines));
@@ -598,10 +615,15 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
             }
         }
         if (event.getDamager() instanceof EvokerFangs && event.getEntity() instanceof LivingEntity) {
-            LivingEntity target = (LivingEntity) event.getEntity();
-            target.getWorld().strikeLightningEffect(target.getLocation());
-            target.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, target.getLocation().add(0, 1, 0), 24, 0.4, 0.6, 0.4, 0.15);
-            return;
+            EvokerFangs fangs = (EvokerFangs) event.getDamager();
+            // Only trigger thunder effect for fangs created by Thunder Fangs skill
+            if ("THUNDER_FANG".equals(fangs.getCustomName())) {
+                LivingEntity target = (LivingEntity) event.getEntity();
+                target.getWorld().strikeLightningEffect(target.getLocation());
+                target.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, target.getLocation().add(0, 1, 0), 24, 0.4, 0.6, 0.4, 0.15);
+                target.getWorld().playSound(target.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 1.0f, 1.0f);
+                return;
+            }
         }
         if (event.getEntity() instanceof Player && event.getDamager() instanceof LivingEntity) {
             Player defender = (Player) event.getEntity();
@@ -930,6 +952,24 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
     }
 
     @EventHandler
+    public void onThunderFangsLaunch(ProjectileLaunchEvent event) {
+        if (!(event.getEntity() instanceof Trident)) return;
+        Projectile projectile = event.getEntity();
+        if (!(projectile.getShooter() instanceof Player)) return;
+        Player player = (Player) projectile.getShooter();
+        ItemStack item = player.getInventory().getItemInMainHand();
+        if (item.getType() != Material.TRIDENT) item = player.getInventory().getItemInOffHand();
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null || !meta.getPersistentDataContainer().has(THUNDER_FANGS_KEY, PersistentDataType.STRING)) return;
+        if (isOnCooldown(player, "Thunder Fangs")) {
+            return;
+        }
+        projectile.setCustomName("THUNDER_FANGS_TRIDENT");
+        projectile.setCustomNameVisible(false);
+        startCooldown(player, "Thunder Fangs", ELEKTROFOLLOW_COOLDOWN);
+    }
+
+    @EventHandler
     public void onTelekinesisTargetDeath(EntityDeathEvent event) {
         for (Map.Entry<UUID, LivingEntity> entry : new ArrayList<>(telekinesisTargets.entrySet())) {
             if (entry.getValue() != event.getEntity()) continue;
@@ -968,6 +1008,7 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
         boolean lowCBook = bookData.has(LOW_C_BOOK_KEY, PersistentDataType.BYTE);
         boolean antiKineticBook = bookData.has(ANTI_KINETIC_BOOK_KEY, PersistentDataType.BYTE);
         boolean elytraShulkerBook = bookData.has(ELYTRA_SHULKER_BOOK_KEY, PersistentDataType.BYTE);
+        boolean thunderFangsBook = bookData.has(THUNDER_FANGS_BOOK_KEY, PersistentDataType.BYTE);
         ItemStack result = weapon.clone();
 
         if (beamBook && weapon.getType() == Material.CROSSBOW) {
@@ -1068,6 +1109,13 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
                 event.setResult(result);
                 event.getInventory().setRepairCost(1);
             }
+        } else if (thunderFangsBook && weapon.getType() == Material.TRIDENT) {
+            ItemMeta weaponMeta = weapon.getItemMeta();
+            if (weaponMeta != null && !weaponMeta.getPersistentDataContainer().has(THUNDER_FANGS_KEY, PersistentDataType.STRING)) {
+                applyThunderFangsSkill(result);
+                event.setResult(result);
+                event.getInventory().setRepairCost(1);
+            }
         }
     }
 
@@ -1157,6 +1205,11 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
 
         if ("ELEKTROFOLLOW_TRIDENT".equals(projectile.getCustomName())) {
             createElektrofollowPaths(projectile, event.getHitEntity());
+            return;
+        }
+
+        if ("THUNDER_FANGS_TRIDENT".equals(projectile.getCustomName())) {
+            handleThunderFangsImpact(projectile, event.getHitEntity());
             return;
         }
 
@@ -1377,6 +1430,42 @@ public class SkillWeaponsPlugin extends JavaPlugin implements Listener, TabCompl
         }
         world.spawnParticle(Particle.ELECTRIC_SPARK, origin, 30, 0.5, 0.5, 0.5, 0.15);
         world.playSound(origin, Sound.ENTITY_EVOKER_FANGS_ATTACK, 1.2f, 0.8f);
+    }
+
+    private void handleThunderFangsImpact(Projectile projectile, Entity hitEntity) {
+        Location origin = projectile.getLocation();
+        World world = origin.getWorld();
+        LivingEntity owner = projectile.getShooter() instanceof LivingEntity
+            ? (LivingEntity) projectile.getShooter() : null;
+        
+        // Create a line of evoker fangs towards the hit entity
+        Vector direction;
+        Location endLocation;
+        
+        if (hitEntity != null) {
+            endLocation = hitEntity.getLocation();
+            direction = endLocation.toVector().subtract(origin.toVector()).normalize();
+        } else {
+            // If no entity hit, create fangs in the direction the projectile was traveling
+            direction = projectile.getVelocity().normalize();
+            endLocation = origin.clone().add(direction.multiply(15));
+        }
+        
+        // Spawn evoker fangs in a line
+        for (int i = 1; i <= 7; i++) {
+            Location fangLocation = origin.clone().add(direction.clone().multiply(i * 2));
+            EvokerFangs fangs = world.spawn(fangLocation, EvokerFangs.class);
+            fangs.setOwner(owner);
+            fangs.setAttackDelay(i * 3);
+            
+            // Mark this fang as a thunder fang
+            fangs.setCustomName("THUNDER_FANG");
+            fangs.setCustomNameVisible(false);
+        }
+        
+        world.spawnParticle(Particle.ELECTRIC_SPARK, origin, 40, 0.6, 0.6, 0.6, 0.2);
+        world.playSound(origin, Sound.ENTITY_EVOKER_FANGS_ATTACK, 1.5f, 0.7f);
+        world.playSound(origin, Sound.ENTITY_LIGHTNING_BOLT_THUNDER, 0.8f, 1.2f);
     }
 
     private void startBlackSpiralTrail(Arrow arrow) {
