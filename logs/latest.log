@@ -1,107 +1,178 @@
-[15:31:56] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Microsoft Microsoft-13053558) on Linux 6.8.0-1052-azure (amd64)
-[15:31:56] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
-[15:31:56] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[15:31:57] [ServerMain/INFO]: [PluginInitializerManager] Initialized 9 plugins
-[15:31:57] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (9):
- - LoginSecurity (3.3.1), OpenInv (5.3.3), PermaDeathPlugin (1.0-SNAPSHOT), SkillWeaponsPlugin (1.0-SNAPSHOT), SkinsRestorer (15.12.5), ViaBackwards (5.11.0), ViaVersion (5.11.0), VillagerFunctions (1.0), XautralFunctions (1.0)
-[15:32:02] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
-[15:32:02] [ServerMain/WARN]: You have used the Paper command line EULA agreement flag.
-[15:32:02] [ServerMain/WARN]: By using this setting you are indicating your agreement to Mojang's EULA (https://aka.ms/MinecraftEULA).
-[15:32:02] [ServerMain/WARN]: If you do not agree to the above EULA please stop your server and remove this flag immediately.
-[15:32:02] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
-[15:32:03] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 925.6ms
-[15:32:05] [ServerMain/INFO]: Loaded 1585 recipes
-[15:32:05] [ServerMain/INFO]: Loaded 1688 advancements
-[15:32:05] [Server thread/INFO]: Starting minecraft server version 26.2
-[15:32:05] [Server thread/INFO]: Loading properties
-[15:32:05] [Server thread/INFO]: This server is running Paper version 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) (Implementing API version 26.2.build.112-stable)
-[15:32:05] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[15:32:06] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[15:32:06] [Server thread/INFO]: Using 4 threads for Netty based IO
-[15:32:06] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
-[15:32:06] [Server thread/INFO]: Default game type: SURVIVAL
-[15:32:06] [Server thread/INFO]: Generating keypair
-[15:32:06] [Server thread/INFO]: Starting Minecraft server on *:25565
-[15:32:06] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
-[15:32:06] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
-[15:32:07] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loading 1 libraries... please wait
-[15:32:07] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loaded library /workspaces/TenoSrv/libraries/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar
-[15:32:07] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.11.0
-[15:32:07] [Server thread/INFO]: [ViaVersion] ViaVersion 5.11.0 is now loaded. Registering protocol transformers and injecting...
-[15:32:08] [Server thread/INFO]: [ViaBackwards] Loading translations...
-[15:32:08] [Server thread/INFO]: [ViaBackwards] Registering protocols...
-[15:32:09] [Server thread/INFO]: [ViaBackwards] Loading server plugin ViaBackwards v5.11.0
-[15:32:09] [Server thread/INFO]: [SkinsRestorer] Loading server plugin SkinsRestorer v15.12.5
-[15:32:09] [Server thread/INFO]: [OpenInv] Loading server plugin OpenInv v5.3.3
-[15:32:09] [Server thread/INFO]: [SkillWeaponsPlugin] Loading server plugin SkillWeaponsPlugin v1.0-SNAPSHOT
-[15:32:09] [Server thread/INFO]: [PermaDeathPlugin] Loading server plugin PermaDeathPlugin v1.0-SNAPSHOT
-[15:32:09] [Server thread/INFO]: [VillagerFunctions] Loading server plugin VillagerFunctions v1.0
-[15:32:09] [Server thread/INFO]: [XautralFunctions] Loading server plugin XautralFunctions v1.0
-[15:32:09] [Server thread/INFO]: [LoginSecurity] Loading server plugin LoginSecurity v3.3.1
-[15:32:09] [Server thread/INFO]: [SkinsRestorer] Enabling SkinsRestorer v15.12.5
-[15:32:09] [Server thread/INFO]: [SkinsRestorer] Running on Minecraft 26.2.0.
-[15:32:10] [Server thread/INFO]: [SkinsRestorer] Using paper join listener!
-[15:32:10] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
-[15:32:10] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
-[15:32:10] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
-[15:32:10] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
-[15:32:10] [Server thread/INFO]: Preparing level "world"
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |   SkinsRestorer   |
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |-------------------|
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |  Standalone Mode  |
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Version: 15.12.5
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Commit: 98b9488
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     This is the latest version!
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Do you have issues? Read our troubleshooting guide: https://skinsrestorer.net/docs/troubleshooting
-[15:32:10] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Want to support SkinsRestorer or receive priority support? Become a supporter: https://skinsrestorer.net/pricing
-[15:32:11] [Server thread/INFO]: Loading 25 persistent chunks for level 'minecraft:overworld'...
-[15:32:11] [Server thread/INFO]: Preparing spawn area: 28%
-[15:32:11] [Server thread/INFO]: Preparing spawn area: 28%
-[15:32:12] [Server thread/INFO]: Prepared spawn area in 1168 ms
-[15:32:12] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
-[15:32:12] [Server thread/INFO]: Prepared spawn area in 0 ms
-[15:32:12] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
-[15:32:12] [Server thread/INFO]: Prepared spawn area in 1 ms
-[15:32:12] [Server thread/INFO]: Done preparing level "world" (2.063s)
-[15:32:12] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.11.0
-[15:32:12] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 26.2 (776)
-[15:32:12] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v5.11.0
-[15:32:12] [Server thread/INFO]: [OpenInv] Enabling OpenInv v5.3.3
-[15:32:12] [Server thread/INFO]: [SkillWeaponsPlugin] Enabling SkillWeaponsPlugin v1.0-SNAPSHOT
-[15:32:12] [Server thread/INFO]: [SkillWeaponsPlugin] SkillWeaponsPlugin habilitado!
-[15:32:12] [Server thread/INFO]: [SkillWeaponsPlugin] Sistema de generación de libros en estructuras iniciado.
-[15:32:12] [Server thread/INFO]: [PermaDeathPlugin] Enabling PermaDeathPlugin v1.0-SNAPSHOT
-[15:32:12] [Server thread/INFO]: [PermaDeathPlugin] PermaDeathPlugin habilitado!
-[15:32:12] [Server thread/INFO]: [VillagerFunctions] Enabling VillagerFunctions v1.0
-[15:32:12] [Server thread/INFO]: [XautralFunctions] Enabling XautralFunctions v1.0
-[15:32:12] [Server thread/INFO]: [XautralFunctions] XautralFunctions mejorado activado.
-[15:32:12] [Server thread/INFO]: [LoginSecurity] Enabling LoginSecurity v3.3.1
-[15:32:12] [Server thread/INFO]: [LoginSecurity] Loading base translations from "en_us"
-[15:32:12] [Server thread/INFO]: [LoginSecurity] Loading specified translations from "en_us"
-[15:32:12] [Server thread/INFO]: [LoginSecurity] Registering commands...
-[15:32:12] [Server thread/INFO]: [LoginSecurity] Registering listeners...
-[15:32:12] [Server thread/WARN]: [LoginSecurity] "LoginSecurity v3.3.1" has registered a listener for org.spigotmc.event.player.PlayerSpawnLocationEvent on method "public void com.lenis0012.bukkit.loginsecurity.modules.general.PlayerListener.maskPlayerLocation(org.spigotmc.event.player.PlayerSpawnLocationEvent)", but the event is Deprecated. "Listening to this event causes the player to be created early. Using the player from this event will result in undefined behavior. Prefer AsyncPlayerSpawnLocationEvent."; please notify the authors [lenis0012].
-[15:32:12] [Server thread/INFO]: [LoginSecurity] Using 1.13+ map captcha renderer
-[15:32:13] [Server thread/INFO]: [spark] Starting background profiler...
-[15:32:13] [Server thread/INFO]: Starting remote control listener
-[15:32:13] [Server thread/INFO]: Thread RCON Listener started
-[15:32:13] [Server thread/INFO]: RCON running on 0.0.0.0:25575
-[15:32:13] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[15:32:14] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
-[15:32:14] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
-[15:32:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[15:32:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[15:32:14] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[15:32:14] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[15:32:14] [Server thread/INFO]: Running delayed init tasks
-[15:32:14] [Server thread/INFO]: Done (18.586s)! For help, type "help"
-[15:32:14] [Craft Scheduler Thread - 3 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
-[15:32:20] [User Authenticator #0/INFO]: UUID of player OmniXautral is f20b02b1-57da-34a4-912f-c54f973b3c4f
-[15:32:20] [Server thread/INFO]: [HorriblePlayerLoginEventHack] You have plugins listening to the PlayerLoginEvent, this will cause re-configuration APIs to be unavailable: [LoginSecurity]
-[15:32:25] [Server thread/INFO]: OmniXautral joined the game
-[15:32:26] [Server thread/INFO]: OmniXautral[/127.132.52.52:57893] logged in with entity id 16 at ([minecraft:overworld]7405.701767049107, 82.74347086649348, 8851.973352012843)
+[17:52:20] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Microsoft Microsoft-13053558) on Linux 6.8.0-1052-azure (amd64)
+[17:52:20] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
+[17:52:20] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[17:52:20] [ServerMain/INFO]: [PluginInitializerManager] Initialized 11 plugins
+[17:52:20] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (11):
+ - CustomMobs (1.0), LoginSecurity (3.3.1), OpenInv (5.3.3), PermaDeathPlugin (1.0-SNAPSHOT), SkillWeaponsPlugin (1.0-SNAPSHOT), SkinsRestorer (15.12.5), ViaBackwards (5.11.0), ViaVersion (5.11.0), VillagerFunctions (1.0), XautralFunctions (1.0), Xript (1.0)
+[17:52:25] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[17:52:25] [ServerMain/WARN]: You have used the Paper command line EULA agreement flag.
+[17:52:25] [ServerMain/WARN]: By using this setting you are indicating your agreement to Mojang's EULA (https://aka.ms/MinecraftEULA).
+[17:52:25] [ServerMain/WARN]: If you do not agree to the above EULA please stop your server and remove this flag immediately.
+[17:52:25] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[17:52:26] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 1,044.9ms
+[17:52:29] [ServerMain/INFO]: Loaded 1585 recipes
+[17:52:29] [ServerMain/INFO]: Loaded 1688 advancements
+[17:52:29] [Server thread/INFO]: Starting minecraft server version 26.2
+[17:52:29] [Server thread/INFO]: Loading properties
+[17:52:29] [Server thread/INFO]: This server is running Paper version 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) (Implementing API version 26.2.build.112-stable)
+[17:52:29] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[17:52:29] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[17:52:29] [Server thread/INFO]: Using 4 threads for Netty based IO
+[17:52:29] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
+[17:52:30] [Server thread/INFO]: Default game type: SURVIVAL
+[17:52:30] [Server thread/INFO]: Generating keypair
+[17:52:30] [Server thread/INFO]: Starting Minecraft server on *:25565
+[17:52:30] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[17:52:30] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[17:52:30] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loading 1 libraries... please wait
+[17:52:30] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loaded library /workspaces/TenoSrv/libraries/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar
+[17:52:30] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.11.0
+[17:52:30] [Server thread/INFO]: [ViaVersion] ViaVersion 5.11.0 is now loaded. Registering protocol transformers and injecting...
+[17:52:31] [Server thread/INFO]: [ViaBackwards] Loading translations...
+[17:52:31] [Server thread/INFO]: [ViaBackwards] Registering protocols...
+[17:52:32] [Server thread/INFO]: [ViaBackwards] Loading server plugin ViaBackwards v5.11.0
+[17:52:32] [Server thread/INFO]: [SkinsRestorer] Loading server plugin SkinsRestorer v15.12.5
+[17:52:32] [Server thread/INFO]: [OpenInv] Loading server plugin OpenInv v5.3.3
+[17:52:32] [Server thread/INFO]: [SkillWeaponsPlugin] Loading server plugin SkillWeaponsPlugin v1.0-SNAPSHOT
+[17:52:32] [Server thread/INFO]: [PermaDeathPlugin] Loading server plugin PermaDeathPlugin v1.0-SNAPSHOT
+[17:52:32] [Server thread/INFO]: [VillagerFunctions] Loading server plugin VillagerFunctions v1.0
+[17:52:32] [Server thread/INFO]: [XautralFunctions] Loading server plugin XautralFunctions v1.0
+[17:52:32] [Server thread/INFO]: [LoginSecurity] Loading server plugin LoginSecurity v3.3.1
+[17:52:32] [Server thread/INFO]: [CustomMobs] Loading server plugin CustomMobs v1.0
+[17:52:32] [Server thread/INFO]: [Xript] Loading server plugin Xript v1.0
+[17:52:32] [Server thread/INFO]: [SkinsRestorer] Enabling SkinsRestorer v15.12.5
+[17:52:33] [Server thread/INFO]: [SkinsRestorer] Running on Minecraft 26.2.0.
+[17:52:33] [Server thread/INFO]: [SkinsRestorer] Using paper join listener!
+[17:52:33] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[17:52:33] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[17:52:33] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[17:52:33] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[17:52:33] [Server thread/INFO]: Preparing level "world"
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |   SkinsRestorer   |
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |-------------------|
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |  Standalone Mode  |
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Version: 15.12.5
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Commit: 98b9488
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     This is the latest version!
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Do you have issues? Read our troubleshooting guide: https://skinsrestorer.net/docs/troubleshooting
+[17:52:34] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Want to support SkinsRestorer or receive priority support? Become a supporter: https://skinsrestorer.net/pricing
+[17:52:34] [Server thread/INFO]: Loading 25 persistent chunks for level 'minecraft:overworld'...
+[17:52:34] [Server thread/INFO]: Preparing spawn area: 28%
+[17:52:35] [Server thread/INFO]: Prepared spawn area in 975 ms
+[17:52:35] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[17:52:35] [Server thread/INFO]: Prepared spawn area in 0 ms
+[17:52:35] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[17:52:35] [Server thread/INFO]: Prepared spawn area in 0 ms
+[17:52:35] [Server thread/INFO]: Done preparing level "world" (1.818s)
+[17:52:35] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.11.0
+[17:52:35] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 26.2 (776)
+[17:52:35] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v5.11.0
+[17:52:35] [Server thread/INFO]: [OpenInv] Enabling OpenInv v5.3.3
+[17:52:35] [Server thread/INFO]: [SkillWeaponsPlugin] Enabling SkillWeaponsPlugin v1.0-SNAPSHOT
+[17:52:35] [Server thread/INFO]: [SkillWeaponsPlugin] SkillWeaponsPlugin habilitado!
+[17:52:35] [Server thread/INFO]: [SkillWeaponsPlugin] Sistema de generación de libros en estructuras iniciado.
+[17:52:35] [Server thread/INFO]: [PermaDeathPlugin] Enabling PermaDeathPlugin v1.0-SNAPSHOT
+[17:52:35] [Server thread/INFO]: [PermaDeathPlugin] PermaDeathPlugin habilitado!
+[17:52:35] [Server thread/INFO]: [VillagerFunctions] Enabling VillagerFunctions v1.0
+[17:52:35] [Server thread/INFO]: [XautralFunctions] Enabling XautralFunctions v1.0
+[17:52:35] [Server thread/INFO]: [XautralFunctions] XautralFunctions mejorado activado.
+[17:52:35] [Server thread/INFO]: [LoginSecurity] Enabling LoginSecurity v3.3.1
+[17:52:35] [Server thread/INFO]: [LoginSecurity] Loading base translations from "en_us"
+[17:52:35] [Server thread/INFO]: [LoginSecurity] Loading specified translations from "en_us"
+[17:52:35] [Server thread/INFO]: [LoginSecurity] Registering commands...
+[17:52:35] [Server thread/INFO]: [LoginSecurity] Registering listeners...
+[17:52:35] [Server thread/WARN]: [LoginSecurity] "LoginSecurity v3.3.1" has registered a listener for org.spigotmc.event.player.PlayerSpawnLocationEvent on method "public void com.lenis0012.bukkit.loginsecurity.modules.general.PlayerListener.maskPlayerLocation(org.spigotmc.event.player.PlayerSpawnLocationEvent)", but the event is Deprecated. "Listening to this event causes the player to be created early. Using the player from this event will result in undefined behavior. Prefer AsyncPlayerSpawnLocationEvent."; please notify the authors [lenis0012].
+[17:52:35] [Server thread/INFO]: [LoginSecurity] Using 1.13+ map captcha renderer
+[17:52:36] [Server thread/INFO]: [CustomMobs] Enabling CustomMobs v1.0
+[17:52:36] [Server thread/INFO]: [Xript] Enabling Xript v1.0
+[17:52:36] [Server thread/INFO]: [spark] Starting background profiler...
+[17:52:36] [Server thread/INFO]: Starting remote control listener
+[17:52:36] [Server thread/INFO]: Thread RCON Listener started
+[17:52:36] [Server thread/INFO]: RCON running on 0.0.0.0:25575
+[17:52:36] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[17:52:37] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[17:52:37] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[17:52:37] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[17:52:37] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:52:37] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:52:37] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[17:52:37] [Server thread/INFO]: Running delayed init tasks
+[17:52:37] [Server thread/INFO]: PERMADEATH: ON
+[17:52:37] [Craft Scheduler Thread - 2 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
+[17:52:37] [Server thread/INFO]: ¡Tormenta eléctrica detectada! Permadeath activado automáticamente.
+[17:52:37] [Server thread/INFO]: [PermaDeathPlugin] Permadeath activado por tormenta eléctrica en world
+[17:52:37] [Server thread/INFO]: Done (18.023s)! For help, type "help"
+[17:52:39] [User Authenticator #0/INFO]: UUID of player OmniXautral is f20b02b1-57da-34a4-912f-c54f973b3c4f
+[17:52:39] [Server thread/INFO]: [HorriblePlayerLoginEventHack] You have plugins listening to the PlayerLoginEvent, this will cause re-configuration APIs to be unavailable: [LoginSecurity]
+[17:52:41] [Server thread/INFO]: OmniXautral joined the game
+[17:52:41] [Server thread/INFO]: OmniXautral[/127.132.52.52:57687] logged in with entity id 16 at ([minecraft:overworld]7368.381632776721, 111.52363838479945, 8778.56339490213)
+[17:54:10] [Server thread/INFO]: OmniXautral issued server command: /weather clear
+[17:54:10] [Server thread/INFO]: [OmniXautral: Set the weather to clear]
+[17:54:10] [Server thread/INFO]: PERMADEATH: OFF
+[17:54:10] [Server thread/INFO]: [PermaDeathPlugin] Permadeath desactivado al terminar la tormenta eléctrica.
+[17:54:15] [Server thread/INFO]: OmniXautral issued server command: /weather thunder
+[17:54:15] [Server thread/INFO]: [OmniXautral: Set the weather to rain & thunder]
+[17:54:15] [Server thread/INFO]: PERMADEATH: ON
+[17:54:15] [Server thread/INFO]: ¡Tormenta eléctrica detectada! Permadeath activado automáticamente.
+[17:54:15] [Server thread/INFO]: [PermaDeathPlugin] Permadeath activado por tormenta eléctrica en world
+[17:54:21] [Server thread/INFO]: OmniXautral issued server command: /weather clear
+[17:54:21] [Server thread/INFO]: [OmniXautral: Set the weather to clear]
+[17:54:21] [Server thread/INFO]: PERMADEATH: OFF
+[17:54:21] [Server thread/INFO]: [PermaDeathPlugin] Permadeath desactivado al terminar la tormenta eléctrica.
+[17:54:28] [Server thread/INFO]: OmniXautral issued server command: /stop
+[17:54:28] [Server thread/INFO]: [OmniXautral: Stopping the server]
+[17:54:28] [Server thread/INFO]: Stopping server
+[17:54:28] [Server thread/INFO]: [Xript] Disabling Xript v1.0
+[17:54:28] [Server thread/INFO]: [CustomMobs] Disabling CustomMobs v1.0
+[17:54:28] [Server thread/INFO]: [LoginSecurity] Disabling LoginSecurity v3.3.1
+[17:54:28] [Server thread/INFO]: [LoginSecurity] Waiting for queued tasks...
+[17:54:28] [Server thread/INFO]: [LoginSecurity] ExecutorService shut down, ready to disable.
+[17:54:28] [Server thread/INFO]: [XautralFunctions] Disabling XautralFunctions v1.0
+[17:54:28] [Server thread/INFO]: [VillagerFunctions] Disabling VillagerFunctions v1.0
+[17:54:28] [Server thread/INFO]: [PermaDeathPlugin] Disabling PermaDeathPlugin v1.0-SNAPSHOT
+[17:54:28] [Server thread/INFO]: [PermaDeathPlugin] PermaDeathPlugin deshabilitado!
+[17:54:28] [Server thread/INFO]: [SkillWeaponsPlugin] Disabling SkillWeaponsPlugin v1.0-SNAPSHOT
+[17:54:28] [Server thread/INFO]: [SkillWeaponsPlugin] SkillWeaponsPlugin deshabilitado!
+[17:54:28] [Server thread/INFO]: [OpenInv] Disabling OpenInv v5.3.3
+[17:54:28] [Server thread/INFO]: [SkinsRestorer] Disabling SkinsRestorer v15.12.5
+[17:54:28] [Server thread/INFO]: [ViaBackwards] Disabling ViaBackwards v5.11.0
+[17:54:28] [Server thread/INFO]: [ViaVersion] Disabling ViaVersion v5.11.0
+[17:54:28] [Server thread/INFO]: [ViaVersion] ViaVersion has been disabled; uninjected the platform and shut down the scheduler.
+[17:54:28] [Server thread/INFO]: Saving players
+[17:54:28] [Server thread/INFO]: OmniXautral lost connection: Server closed
+[17:54:28] [Server thread/INFO]: OmniXautral left the game
+[17:54:28] [Server thread/INFO]: Saving worlds
+[17:54:28] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[17:54:28] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:overworld'
+[17:54:28] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:overworld'
+[17:54:28] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:overworld'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Saved 1669 block chunks, 975 entity chunks, 0 poi chunks in world 'minecraft:overworld' in 2.71s
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:overworld'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:overworld'
+[17:54:31] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_nether'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_nether'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_nether'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_nether' in 0.00s
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_nether'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_nether'
+[17:54:31] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'minecraft:the_end'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'minecraft:the_end'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'minecraft:the_end'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'minecraft:the_end' in 0.00s
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk I/O to halt for world 'minecraft:the_end'
+[17:54:31] [Server thread/INFO]: [ChunkHolderManager] Halted I/O scheduler for world 'minecraft:the_end'
+[17:54:31] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[17:54:31] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[17:54:31] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[17:54:31] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[17:54:31] [Server thread/INFO]: Waiting for all RegionFile I/O tasks to complete...
+[17:54:31] [Server thread/INFO]: All RegionFile I/O tasks to complete
+[17:54:31] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of worker pool for up to 60s...
+[17:54:31] [Server thread/INFO]: [MoonriseCommon] Awaiting termination of I/O pool for up to 60s...

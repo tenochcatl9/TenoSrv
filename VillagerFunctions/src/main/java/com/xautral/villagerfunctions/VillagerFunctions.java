@@ -192,7 +192,7 @@ public class VillagerFunctions extends JavaPlugin implements Listener, TabComple
                 throwPotion(v, target);
                 startCooldown(potionCooldowns, v.getUniqueId());
             }
-            if (!isOnCooldown(supportCooldowns, v.getUniqueId(), 1000)) {
+            if (!isOnCooldown(supportCooldowns, v.getUniqueId(), 5000)) {
                 healNearbyVillagers(v);
                 startCooldown(supportCooldowns, v.getUniqueId());
             }
@@ -291,8 +291,7 @@ public class VillagerFunctions extends JavaPlugin implements Listener, TabComple
 
     private LivingEntity findTarget(Villager v) {
         return v.getNearbyEntities(20, 8, 20).stream()
-                .filter(e -> e instanceof Zombie || e instanceof Skeleton || e instanceof Pillager || 
-                          e instanceof Vindicator || e instanceof Player || e instanceof Ravager)
+                .filter(e -> e instanceof Monster || e instanceof Player || e instanceof Ravager)
                 .filter(e -> !(e instanceof Player) || !((Player) e).hasPermission("xautral.op"))
                 .map(e -> (LivingEntity) e)
                 .min(Comparator.comparingDouble(e -> e.getLocation().distanceSquared(v.getLocation())))

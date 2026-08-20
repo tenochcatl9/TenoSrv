@@ -1,0 +1,9 @@
+name: Xript
+version: 1.0
+main: com.xautral.xript.Xript
+api-version: 1.20
+commands:
+  ie:
+    description: Editor de ítems con atributos Xript
+    permission: xautral.op
+    aliases: [xript]

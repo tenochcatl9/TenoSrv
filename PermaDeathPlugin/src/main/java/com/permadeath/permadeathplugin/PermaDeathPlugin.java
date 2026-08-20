@@ -10,7 +10,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 import org.bukkit.inventory.meta.SkullMeta;
@@ -27,13 +26,12 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
 
     private boolean permadeathEnabled = false;
     private boolean stormAutoActivate = false;
+    private boolean manualPermadeath = false;
+    private boolean stormWasActive = false;
     private Map<UUID, Location> deathLocations = new HashMap<>();
     private Map<UUID, String> deathCauses = new HashMap<>();
     private Map<UUID, Long> deathTimes = new HashMap<>();
     private Map<UUID, String> deathPlayerNames = new HashMap<>(); // Guardar nombres de jugadores que murieron
-    private long stormStartTime = 0;
-    private long stormEndTime = 0;
-    private boolean activeStormPermadeath = false;
 
     @Override
     public void onEnable() {
@@ -43,9 +41,9 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
         
         // Cargar configuración
         loadConfig();
-        
-        // Iniciar task para mostrar duración de tormenta en action bar
-        startStormActionBarTask();
+
+        // Iniciar task de detección de tormenta y action bar
+        startStormTask();
     }
 
     @Override
@@ -57,12 +55,13 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
     private void loadConfig() {
         getConfig().options().copyDefaults(true);
         saveConfig();
-        permadeathEnabled = getConfig().getBoolean("permadeath-enabled", false);
+        manualPermadeath = getConfig().getBoolean("permadeath-enabled", false);
         stormAutoActivate = getConfig().getBoolean("storm-auto-activate", false);
+        updatePermadeathState();
     }
 
     private void saveConfigSettings() {
-        getConfig().set("permadeath-enabled", permadeathEnabled);
+        getConfig().set("permadeath-enabled", manualPermadeath);
         getConfig().set("storm-auto-activate", stormAutoActivate);
         saveConfig();
     }
@@ -116,7 +115,8 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
     }
 
     private void activatePermadeath(Player player) {
-        permadeathEnabled = true;
+        manualPermadeath = true;
+        updatePermadeathState();
         saveConfigSettings();
         
         // Reproducir sonido de caballo esqueleto muriendo
@@ -129,8 +129,8 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
     }
 
     private void deactivatePermadeath(Player player) {
-        permadeathEnabled = false;
-        activeStormPermadeath = false;
+        manualPermadeath = false;
+        updatePermadeathState();
         saveConfigSettings();
         
         player.sendMessage(ChatColor.GREEN + "Permadeath desactivado");
@@ -140,6 +140,7 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
 
     private void toggleStormAutoActivate(Player player) {
         stormAutoActivate = !stormAutoActivate;
+        updatePermadeathState();
         saveConfigSettings();
         
         if (stormAutoActivate) {
@@ -149,56 +150,86 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
         }
     }
 
-    @EventHandler
-    public void onWeatherChange(WeatherChangeEvent event) {
-        if (!stormAutoActivate) return;
-        
-        World world = event.getWorld();
-        
-        if (event.toWeatherState()) {
-            // Comienza tormenta
-            stormStartTime = System.currentTimeMillis();
-            // Obtener duración real de la tormenta en ticks
-            int weatherDuration = world.getWeatherDuration();
-            // Convertir ticks a milisegundos (1 tick = 50ms)
-            stormEndTime = stormStartTime + (weatherDuration * 50L);
-            activeStormPermadeath = true;
-            permadeathEnabled = true;
-            saveConfigSettings();
-            
-            Bukkit.broadcastMessage(ChatColor.YELLOW + "¡Tormenta detectada! Permadeath activado automáticamente.");
-            getLogger().info("Permadeath activado automáticamente por tormenta. Duración: " + weatherDuration + " ticks");
-        } else {
-            // Termina tormenta
-            activeStormPermadeath = false;
-            stormEndTime = 0;
-            if (!permadeathEnabled) {
-                // Si no estaba activado manualmente, desactivar
-                permadeathEnabled = false;
-                saveConfigSettings();
-                Bukkit.broadcastMessage(ChatColor.GREEN + "La tormenta ha terminado. Permadeath desactivado.");
-            }
+    private boolean isThunderStorm(World world) {
+        return world.hasStorm() && world.isThundering();
+    }
+
+    private boolean anyStormActive() {
+        for (World w : Bukkit.getWorlds()) {
+            if (isThunderStorm(w)) return true;
+        }
+        return false;
+    }
+
+    private World getStormWorld() {
+        for (World w : Bukkit.getWorlds()) {
+            if (isThunderStorm(w)) return w;
+        }
+        return null;
+    }
+
+    private void updatePermadeathState() {
+        permadeathEnabled = manualPermadeath || (stormAutoActivate && anyStormActive());
+    }
+
+    private void playSoundToAll(Sound sound, float pitch) {
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            p.playSound(p.getLocation(), sound, 1.0f, pitch);
         }
     }
 
-    private void startStormActionBarTask() {
+    private void checkStormStates() {
+        if (!stormAutoActivate) return;
+        boolean nowActive = anyStormActive();
+        if (nowActive && !stormWasActive) {
+            World w = getStormWorld();
+            Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "PERMADEATH: ON") ;
+            Bukkit.broadcastMessage(ChatColor.YELLOW + "¡Tormenta eléctrica detectada! Permadeath activado automáticamente.");
+            getLogger().info("Permadeath activado por tormenta eléctrica en " + (w != null ? w.getName() : "?"));
+            playSoundToAll(Sound.ENTITY_ELDER_GUARDIAN_CURSE, 0.0f);
+        } else if (!nowActive && stormWasActive) {
+            Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "PERMADEATH: OFF");
+            getLogger().info("Permadeath desactivado al terminar la tormenta eléctrica.");
+            playSoundToAll(Sound.ENTITY_EVOKER_CAST_SPELL, 0.0f);
+            playSoundToAll(Sound.ENTITY_EVOKER_CAST_SPELL, 1.0f);
+            playSoundToAll(Sound.ENTITY_EVOKER_PREPARE_SUMMON, 2.0f);
+            playSoundToAll(Sound.ENTITY_EVOKER_PREPARE_SUMMON, 0.5f);
+            playSoundToAll(Sound.ENTITY_EVOKER_PREPARE_SUMMON, 0.7f);
+        }
+        stormWasActive = nowActive;
+        updatePermadeathState();
+    }
+
+    private void startStormTask() {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (activeStormPermadeath && permadeathEnabled && stormEndTime > 0) {
-                    long remaining = (stormEndTime - System.currentTimeMillis()) / 1000;
-                    if (remaining < 0) remaining = 0;
-                    String message = ChatColor.YELLOW + "Permadeath activado por tormenta - Tiempo restante: " + remaining + "s";
-                    
-                    for (Player player : Bukkit.getOnlinePlayers()) {
-                        player.spigot().sendMessage(
-                            net.md_5.bungee.api.ChatMessageType.ACTION_BAR,
-                            net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message)
-                        );
-                    }
+                checkStormStates();
+
+                World w = getStormWorld();
+                if (w == null) return;
+                String message = ChatColor.GRAY + "Permadeath activado por tormenta - Tiempo restante: " + formatRemaining(w.getThunderDuration());
+
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    player.spigot().sendMessage(
+                        net.md_5.bungee.api.ChatMessageType.ACTION_BAR,
+                        net.md_5.bungee.api.chat.TextComponent.fromLegacyText(message)
+                    );
                 }
             }
         }.runTaskTimer(this, 0L, 20L); // Cada segundo
+    }
+
+    private String formatRemaining(long ticks) {
+        long secs = Math.max(0, ticks / 20);
+        long days = secs / 86400;
+        long hours = (secs % 86400) / 3600;
+        long minutes = (secs % 3600) / 60;
+        long seconds = secs % 60;
+        if (days > 0) return days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+        if (hours > 0) return hours + "h " + minutes + "m " + seconds + "s";
+        if (minutes > 0) return minutes + "m " + seconds + "s";
+        return seconds + "s";
     }
 
     @EventHandler
@@ -458,23 +489,24 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
             deadPlayer.setGameMode(GameMode.SURVIVAL);
             deadPlayer.teleport(deathLoc);
             deadPlayer.sendMessage(ChatColor.GREEN + "¡Has sido revivido por " + reviver.getName() + "! Has sido teletransportado a donde moriste.");
+
+            // Mostrar coordenadas en el chat con mensaje de quién revivió a quién
+            String coords = String.format("X: %d, Y: %d, Z: %d, Mundo: %s",
+                deathLoc.getBlockX(), deathLoc.getBlockY(), deathLoc.getBlockZ(), deathLoc.getWorld().getName());
+            Bukkit.broadcastMessage(ChatColor.GREEN + deadPlayerName + " ha sido revivido en: " + coords);
+            Bukkit.broadcastMessage(ChatColor.AQUA + reviver.getName() + " revivió a " + deadPlayerName);
+
+            // Limpiar datos de muerte
+            deathLocations.remove(deadPlayerUUID);
+            deathCauses.remove(deadPlayerUUID);
+            deathTimes.remove(deadPlayerUUID);
+            deathPlayerNames.remove(deadPlayerUUID);
         } else {
-            // Si no está online, guardar para cuando se conecte
-            reviver.sendMessage(ChatColor.YELLOW + "El jugador " + deadPlayerName + " no está online. Cuando se conecte será revivido automáticamente.");
+            // Si no está online, se conserva la ubicación de muerte para revivirlo al conectarse
+            reviver.sendMessage(ChatColor.YELLOW + "El jugador " + deadPlayerName + " no está online. Cuando se conecte aparecerá donde murió, en modo supervivencia.");
+            Bukkit.broadcastMessage(ChatColor.AQUA + reviver.getName() + " usó el libro de revivir para " + deadPlayerName + " (aparecerá al conectarse)");
         }
-        
-        // Mostrar coordenadas en el chat con mensaje de quién revivió a quién
-        String coords = String.format("X: %d, Y: %d, Z: %d, Mundo: %s", 
-            deathLoc.getBlockX(), deathLoc.getBlockY(), deathLoc.getBlockZ(), deathLoc.getWorld().getName());
-        Bukkit.broadcastMessage(ChatColor.GREEN + deadPlayerName + " ha sido revivido en: " + coords);
-        Bukkit.broadcastMessage(ChatColor.AQUA + reviver.getName() + " revivió a " + deadPlayerName);
-        
-        // Limpiar datos de muerte
-        deathLocations.remove(deadPlayerUUID);
-        deathCauses.remove(deadPlayerUUID);
-        deathTimes.remove(deadPlayerUUID);
-        deathPlayerNames.remove(deadPlayerUUID);
-        
+
         event.setCancelled(true);
     }
 
@@ -482,19 +514,18 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
-        
+
         if (deathLocations.containsKey(playerUUID)) {
             Location deathLoc = deathLocations.get(playerUUID);
-            String coords = String.format("X: %d, Y: %d, Z: %d, Mundo: %s", 
-                deathLoc.getBlockX(), deathLoc.getBlockY(), deathLoc.getBlockZ(), deathLoc.getWorld().getName());
-            
-            player.sendMessage(ChatColor.YELLOW + "Tienes una muerte pendiente de revivir en: " + coords);
-            player.sendMessage(ChatColor.YELLOW + "Encuentra el libro de revivir en el cofre con tu cabeza para volver al juego.");
-            
-            // Cambiar a modo espectador si el permadeath sigue activo
-            if (permadeathEnabled) {
-                player.setGameMode(GameMode.SPECTATOR);
-            }
+
+            player.setGameMode(GameMode.SURVIVAL);
+            player.teleport(deathLoc);
+            player.sendMessage(ChatColor.GREEN + "Has aparecido donde moriste, en modo supervivencia.");
+
+            deathLocations.remove(playerUUID);
+            deathCauses.remove(playerUUID);
+            deathTimes.remove(playerUUID);
+            deathPlayerNames.remove(playerUUID);
         }
     }
 }
