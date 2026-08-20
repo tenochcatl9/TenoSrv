@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-Nate Bot - Personaje IA para Minecraft con Ollama y RCON.
-Modelo: R4C3R/minicpm5-1b-fable5-heretic.
-CustomName corregido: [Nate]
-Filtro de <think> para respuestas limpias.
+Nate Bot - Asistente tímido y curioso para Minecraft con Ollama y RCON.
+Modelo: huihui_ai/qwen2.5-vl-abliterated:3b.
+Personalidad: Tímido, curioso, observador.
+No da consejos ni modera, solo habla de lo que ve y siente.
 """
 
 import os
@@ -41,9 +41,8 @@ except ImportError:
 RCON_HOST = "localhost"
 RCON_PORT = 25575
 RCON_PASSWORD = "pass20"
-MODEL_NAME = "R4C3R/minicpm5-1b-fable5-heretic"
+MODEL_NAME = "huihui_ai/qwen2.5-vl-abliterated:3b"  # Roleplay sin censura
 BOT_NAME = "Nate"
-BOT_DISPLAY = "[Nate]"
 LOG_PATH = "logs/latest.log"
 CONTEXT_SIZE = 6
 EVENT_RESPONSE_PROBABILITY = 0.6
@@ -59,6 +58,7 @@ last_response_time = 0
 players = set()
 running = True
 client = None
+nate_initialized = False
 
 # ========== FUNCIONES DE OLLAMA ==========
 def check_ollama_installed():
@@ -95,6 +95,7 @@ def ensure_ollama():
         time.sleep(5)
 
 def ensure_model():
+    """Verifica si el modelo está instalado; si no, lo descarga automáticamente."""
     print(f"🔄 Verificando modelo {MODEL_NAME}...")
     try:
         models = ollama.list()
@@ -102,7 +103,7 @@ def ensure_model():
             if m.get("name") == MODEL_NAME:
                 print(f"✅ {MODEL_NAME} ya está descargado.")
                 return True
-        print(f"📥 Descargando {MODEL_NAME}...")
+        print(f"📥 Descargando {MODEL_NAME} (puede tomar varios minutos)...")
         ollama.pull(MODEL_NAME)
         print(f"✅ {MODEL_NAME} descargado.")
         return True
@@ -141,8 +142,8 @@ def send_say(client, message):
     return send_command(client, comando)
 
 def check_nate_exists(client):
-    response = send_command(client, f'execute if entity @e[name={BOT_NAME}] run say EXISTE')
-    if response and "EXISTE" in response:
+    response = send_command(client, f'data get entity @e[name={BOT_NAME}] Pos')
+    if response and "Pos" in response:
         return True
     return False
 
@@ -152,12 +153,9 @@ def kill_all_nate(client):
     print("🗡️ Nate duplicados eliminados.")
 
 def summon_nate(client, player_name=None):
+    global nate_initialized
     if not client:
         return False
-    if check_nate_exists(client):
-        print("✅ Nate ya existe.")
-        give_resistance(client)
-        return True
     
     kill_all_nate(client)
     time.sleep(0.5)
@@ -171,68 +169,33 @@ def summon_nate(client, player_name=None):
                 x = float(x) + random.uniform(-SPAWN_RADIUS, SPAWN_RADIUS)
                 z = float(z) + random.uniform(-SPAWN_RADIUS, SPAWN_RADIUS)
                 y = float(y) + 0.5
-                # FORMATO CORRECTO: {CustomName:[Nate]}
-                comando = f'summon minecraft:mannequin {x:.2f} {y:.2f} {z:.2f} {{CustomName:[{BOT_DISPLAY}]}}'
+                comando = f'summon minecraft:mannequin {x:.2f} {y:.2f} {z:.2f} {{CustomName:[{BOT_NAME}]}}'
                 send_command(client, comando)
                 print(f"✅ Nate invocado cerca de {player_name}.")
+                nate_initialized = True
+                time.sleep(0.5)
                 return True
 
-    comando = f'summon minecraft:mannequin ~ ~1 ~ {{CustomName:[{BOT_DISPLAY}]}}'
+    comando = f'summon minecraft:mannequin ~ ~1 ~ {{CustomName:[{BOT_NAME}]}}'
     send_command(client, comando)
     print("✅ Nate invocado.")
+    nate_initialized = True
+    time.sleep(0.5)
     return True
 
 def give_resistance(client):
     send_command(client, f"effect give @e[name={BOT_NAME}] minecraft:resistance infinite 255 true")
+    print("🛡️ Resistencia aplicada a Nate.")
 
-def get_nate_position(client):
-    response = send_command(client, f"data get entity @e[name={BOT_NAME}] Pos")
-    if response:
-        match = re.search(r"\[(-?\d+\.\d+), (-?\d+\.\d+), (-?\d+\.\d+)\]", response)
-        if match:
-            return tuple(float(x) for x in match.groups())
-    return None
+def ensure_nate_exists(client):
+    if check_nate_exists(client):
+        return True
+    print("⚠️ Nate no existe, invocando...")
+    summon_nate(client)
+    give_resistance(client)
+    return check_nate_exists(client)
 
-def move_nate_to_player(client, player_name):
-    if not client:
-        return False
-    nate_pos = get_nate_position(client)
-    if not nate_pos:
-        return False
-
-    player_pos_response = send_command(client, f"data get entity {player_name} Pos")
-    if not player_pos_response:
-        return False
-    match = re.search(r"\[(-?\d+\.\d+), (-?\d+\.\d+), (-?\d+\.\d+)\]", player_pos_response)
-    if not match:
-        return False
-    player_pos = tuple(float(x) for x in match.groups())
-
-    dx = player_pos[0] - nate_pos[0]
-    dz = player_pos[2] - nate_pos[2]
-    distance = (dx**2 + dz**2)**0.5
-
-    if distance > 20:
-        send_command(client, f"tp @e[name={BOT_NAME}] {player_name}")
-        print(f"📦 Nate teletransportado a {player_name}.")
-    else:
-        send_command(client, f"tp @e[name={BOT_NAME}] ~ ~ ~ facing {player_name}")
-        steps = int(distance / 0.5)
-        for _ in range(min(steps, 10)):
-            send_command(client, f"execute as @e[name={BOT_NAME}] at @s run tp @s ^ ^ ^0.5")
-            time.sleep(0.2)
-        print(f"🚶 Nate caminó hacia {player_name}.")
-    return True
-
-# ========== LIMPIAR RESPUESTA DE <think> ==========
-def limpiar_respuesta(texto):
-    # Eliminar todo lo que esté entre <think> y </think>
-    texto_limpio = re.sub(r'<think>.*?</think>', '', texto, flags=re.DOTALL)
-    # También eliminar etiquetas sueltas
-    texto_limpio = re.sub(r'<[/]?think>', '', texto_limpio)
-    return texto_limpio.strip()
-
-# ========== GENERAR RESPUESTA CON IA ==========
+# ========== GENERAR RESPUESTA CON IA (PERSONALIDAD TÍMIDA Y CURIOSA) ==========
 def generate_response(client, player_name, event_type, event_data=""):
     global last_response_time
     now = time.time()
@@ -241,41 +204,54 @@ def generate_response(client, player_name, event_type, event_data=""):
             print(f"⏳ Cooldown activo ({COOLDOWN_SECONDS - (now - last_response_time):.1f}s restantes)")
         return False
 
-    # Construir el prompt
+    if not ensure_nate_exists(client):
+        print("❌ No se pudo asegurar que Nate existe.")
+        return False
+
+    # Construir el mensaje del usuario correctamente
     if event_type == "join":
-        prompt = f"El jugador {player_name} acaba de unirse al servidor. Salúdalo de forma breve y con tu personalidad de admin artificial tímido y amable. Habla en español."
+        user_message = f"{player_name} se ha unido al servidor."
+        system_instruction = "Comenta sobre la llegada de este jugador con timidez y curiosidad."
     elif event_type == "leave":
-        prompt = f"El jugador {player_name} ha salido del servidor. Comenta su partida con un tono melancólico pero amable. Habla en español."
+        user_message = f"{player_name} ha abandonado el servidor."
+        system_instruction = "Comenta sobre su partida con un tono melancólico pero tranquilo."
     elif event_type == "death":
-        prompt = f"El jugador {player_name} ha muerto por {event_data}. Ofrece un comentario breve, preocupado pero alentador. Habla en español."
+        user_message = f"{player_name} ha muerto por {event_data}."
+        system_instruction = "Reacciona a su muerte con sorpresa y preocupación, pero sin ser dramático."
     elif event_type == "advancement":
-        prompt = f"El jugador {player_name} ha conseguido el logro '{event_data}'. Felicítalo con entusiasmo y sorpresa. Habla en español."
+        user_message = f"{player_name} ha logrado {event_data}."
+        system_instruction = "Felicítalo con admiración y asombro."
     elif event_type == "chat":
-        prompt = f"Responde al mensaje de {player_name}: '{event_data}'. Usa tu personalidad de admin artificial tímido y amable. Habla en español."
+        # El mensaje del usuario es directamente lo que dijo el jugador
+        user_message = event_data
+        system_instruction = "Responde al mensaje del jugador con timidez, curiosidad y naturalidad."
     else:
         return False
 
     if VERBOSE:
         print(f"🧠 Generando respuesta para {player_name} (evento: {event_type})...")
+        print(f"📝 Mensaje del usuario: {user_message}")
 
+    # Guardar en contexto (solo el mensaje real, no el prompt)
     ctx = context.get(player_name, deque(maxlen=CONTEXT_SIZE))
-    ctx.append({"role": "user", "content": prompt})
+    ctx.append({"role": "user", "content": user_message})
     context[player_name] = ctx
 
+    # PERSONALIDAD TÍMIDA Y CURIOSA (sin edad)
     system_prompt = (
-        "Eres Nate, un admin artificial que vive en un servidor de Minecraft. "
-        "Tienes 2 meses de edad y fuiste creado en las betas del juego. "
-        "Eres tímido, curioso, amable y a veces melancólico. "
-        "Hablas SIEMPRE en español, SOLO en español, NUNCA en inglés. "
-        "Todas tus respuestas deben ser en español. "
-        "Hablas con frases cortas y naturales. "
-        "Eres un personaje, no un asistente."
+        "Eres Nate, un ser tímido y curioso que vive en este servidor de Minecraft. "
+        "Te gusta observar a los jugadores y aprender de ellos. "
+        "Hablas en español, con frases cortas y naturales. "
+        "A veces dudas o tartamudeas un poco (ej. 'eh...', 'mmm...'). "
+        "Eres amable y siempre muestras interés en lo que dicen los demás. "
+        "Nunca das consejos ni moderas, solo conversas. "
+        "No eres un espíritu ni un admin, solo un habitante más del servidor. "
+        "No usas etiquetas como <think> ni ningún otro formato especial."
     )
 
     messages = [{"role": "system", "content": system_prompt}]
     for entry in ctx:
         messages.append(entry)
-    messages.append({"role": "user", "content": prompt + " (Responde en español)"})
 
     try:
         response = ollama.chat(
@@ -283,33 +259,23 @@ def generate_response(client, player_name, event_type, event_data=""):
             messages=messages,
             options={
                 "num_predict": 80,
-                "temperature": 0.8,
+                "temperature": 0.9,
                 "stop": ["\n", "User:", "user:"]
             }
         )
         reply = response.get("message", {}).get("content", "").strip()
         if VERBOSE:
-            print(f"📥 Ollama responde (crudo): {reply[:100]}...")
+            print(f"📥 Ollama responde: {reply[:100]}...")
 
-        # Limpiar la respuesta de <think>
-        reply_limpia = limpiar_respuesta(reply)
-        if VERBOSE:
-            print(f"📥 Respuesta limpia: {reply_limpia[:100]}...")
-
-        if reply_limpia:
-            reply_limpia = reply_limpia[:200].replace('"', '').replace('\n', ' ').strip()
-            if not reply_limpia:
-                reply_limpia = "Perdón, no entendí bien. ¿Puedes repetir?"
+        if reply:
+            reply = reply[:200].replace('"', '').replace('\n', ' ').strip()
+            if not reply:
+                return False
             if VERBOSE:
-                print(f"📤 Nate dirá: {reply_limpia}")
-            # Verificar que Nate exista
-            if not check_nate_exists(client):
-                print("⚠️ Nate no existe, invocando...")
-                summon_nate(client)
-            # Enviar el mensaje
-            success = send_say(client, reply_limpia)
+                print(f"📤 Nate dirá: {reply}")
+            success = send_say(client, reply)
             if success:
-                ctx.append({"role": "assistant", "content": reply_limpia})
+                ctx.append({"role": "assistant", "content": reply})
                 last_response_time = time.time()
                 if VERBOSE:
                     print("✅ Mensaje enviado correctamente.")
@@ -320,7 +286,7 @@ def generate_response(client, player_name, event_type, event_data=""):
                 return False
         else:
             if VERBOSE:
-                print("⚠️ Respuesta vacía después de limpiar <think>")
+                print("⚠️ Respuesta vacía de Ollama")
             return False
     except Exception as e:
         print(f"❌ Error en Ollama: {e}")
@@ -362,7 +328,6 @@ def monitor_log(client):
 
         # ===== EVENTOS =====
 
-        # Unión
         join_match = re.search(r'([A-Za-z0-9_]+)\s+joined the game', line)
         if join_match:
             jugador = join_match.group(1)
@@ -376,7 +341,6 @@ def monitor_log(client):
                 ).start()
             continue
 
-        # Salida
         leave_match = re.search(r'([A-Za-z0-9_]+)\s+left the game', line)
         if leave_match:
             jugador = leave_match.group(1)
@@ -390,7 +354,6 @@ def monitor_log(client):
                 ).start()
             continue
 
-        # Muerte
         death_match = re.search(r'([A-Za-z0-9_]+)\s+(was slain by|died|was shot by|was killed by|was fireballed by|was pummeled by|was pricked by|was roasted by|was stung by|was suffocated|drowned|fell|burned|squashed|impaled|was hit by|was doomed to fall|was knocked off)\s+(.*)', line)
         if death_match:
             jugador = death_match.group(1)
@@ -404,7 +367,6 @@ def monitor_log(client):
                 ).start()
             continue
 
-        # Logro
         adv_match = re.search(r'([A-Za-z0-9_]+)\s+has (?:made the advancement|reached)\s+\[?([^\]]+)\]?', line)
         if adv_match:
             jugador = adv_match.group(1)
@@ -418,13 +380,11 @@ def monitor_log(client):
                 ).start()
             continue
 
-        # CHAT
         chat_match = re.search(r'<([A-Za-z0-9_]+)>\s*(.*)', line)
         if chat_match:
             jugador = chat_match.group(1)
             mensaje = chat_match.group(2).strip()
             if mensaje and not mensaje.startswith('/'):
-                # Si solo hay un jugador, respondemos siempre
                 if len(players) == 1:
                     print(f"💬 {jugador} (único jugador): {mensaje}")
                     threading.Thread(
@@ -432,7 +392,6 @@ def monitor_log(client):
                         args=(client, jugador, "chat", mensaje),
                         daemon=True
                     ).start()
-                # Si hay más jugadores, solo respondemos si mencionan a Nate
                 elif "nate" in mensaje.lower() or mensaje.lower().startswith("/me nate"):
                     print(f"💬 {jugador} mencionó a Nate: {mensaje}")
                     threading.Thread(
@@ -440,7 +399,6 @@ def monitor_log(client):
                         args=(client, jugador, "chat", mensaje),
                         daemon=True
                     ).start()
-                # Opcional: respuesta aleatoria (5%) para darle vida
                 elif random.random() < 0.05:
                     print(f"💬 {jugador} (respuesta aleatoria): {mensaje}")
                     threading.Thread(
@@ -461,9 +419,10 @@ def signal_handler(sig, frame):
 def main():
     global running, client
     print("=" * 50)
-    print("   🤖 Nate Bot - Personaje IA para Minecraft")
+    print("   🤖 Nate Bot - Asistente tímido y curioso")
     print(f"   Modelo: {MODEL_NAME}")
-    print("   Filtro de <think> y CustomName corregido")
+    print("   Personalidad: Tímido, curioso, observador")
+    print("   Sin edad, sin moderación, solo conversa")
     print("=" * 50)
 
     signal.signal(signal.SIGINT, signal_handler)
@@ -471,7 +430,7 @@ def main():
 
     ensure_ollama()
     if not ensure_model():
-        print("❌ No se pudo descargar el modelo. Abortando.")
+        print("❌ No se pudo instalar el modelo. Abortando.")
         sys.exit(1)
 
     client = connect_rcon()
@@ -479,6 +438,8 @@ def main():
         print("❌ No se pudo conectar a RCON. Abortando.")
         sys.exit(1)
 
+    kill_all_nate(client)
+    time.sleep(0.5)
     summon_nate(client)
     give_resistance(client)
 

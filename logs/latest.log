@@ -1,6 +1,157 @@
-[23:45:26] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Microsoft Microsoft-13053558) on Linux 6.8.0-1052-azure (amd64)
-[23:45:26] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
-[23:45:26] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[23:45:27] [ServerMain/INFO]: [PluginInitializerManager] Initialized 9 plugins
-[23:45:27] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (9):
+[01:01:39] [ServerMain/INFO]: [bootstrap] Running Java 25 (OpenJDK 64-Bit Server VM 25.0.2+10-LTS; Microsoft Microsoft-13053558) on Linux 6.8.0-1052-azure (amd64)
+[01:01:39] [ServerMain/INFO]: [bootstrap] Loading Paper 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) for Minecraft 26.2
+[01:01:39] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[01:01:40] [ServerMain/INFO]: [PluginInitializerManager] Initialized 9 plugins
+[01:01:40] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (9):
  - LoginSecurity (3.3.1), OpenInv (5.3.3), PermaDeathPlugin (1.0-SNAPSHOT), SkillWeaponsPlugin (1.0-SNAPSHOT), SkinsRestorer (15.12.5), ViaBackwards (5.11.0), ViaVersion (5.11.0), VillagerFunctions (1.0), XautralFunctions (1.0)
+[01:01:44] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Initialising converters for DataConverter...
+[01:01:44] [ServerMain/WARN]: You have used the Paper command line EULA agreement flag.
+[01:01:44] [ServerMain/WARN]: By using this setting you are indicating your agreement to Mojang's EULA (https://aka.ms/MinecraftEULA).
+[01:01:44] [ServerMain/WARN]: If you do not agree to the above EULA please stop your server and remove this flag immediately.
+[01:01:45] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, profilesHost=https://api.mojang.com, name=PROD]
+[01:01:45] [DataConverter MCTypeRegistry init thread/INFO]: [ca.spottedleaf.dataconverter.minecraft.datatypes.MCTypeRegistry] Finished initialising converters for DataConverter in 982.6ms
+[01:01:48] [ServerMain/INFO]: Loaded 1585 recipes
+[01:01:48] [ServerMain/INFO]: Loaded 1688 advancements
+[01:01:48] [Server thread/INFO]: Starting minecraft server version 26.2
+[01:01:48] [Server thread/INFO]: Loading properties
+[01:01:48] [Server thread/INFO]: This server is running Paper version 26.2-112-main@c9e894d (2026-08-11T05:18:39Z) (Implementing API version 26.2.build.112-stable)
+[01:01:48] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[01:01:48] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[01:01:48] [Server thread/INFO]: Using 4 threads for Netty based IO
+[01:01:49] [Server thread/INFO]: [MoonriseCommon] Paper is using 1 worker threads, 1 I/O threads
+[01:01:49] [Server thread/INFO]: Default game type: SURVIVAL
+[01:01:49] [Server thread/INFO]: Generating keypair
+[01:01:49] [Server thread/INFO]: Starting Minecraft server on *:25565
+[01:01:49] [Server thread/INFO]: Paper: Using libdeflate (Linux x86_64) compression from Velocity.
+[01:01:49] [Server thread/INFO]: Paper: Using OpenSSL 3.x.x (Linux x86_64) cipher from Velocity.
+[01:01:50] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loading 1 libraries... please wait
+[01:01:50] [Server thread/INFO]: [SpigotLibraryLoader] [OpenInv] Loaded library /workspaces/TenoSrv/libraries/org/xerial/sqlite-jdbc/3.49.1.0/sqlite-jdbc-3.49.1.0.jar
+[01:01:50] [Server thread/INFO]: [ViaVersion] Loading server plugin ViaVersion v5.11.0
+[01:01:50] [Server thread/INFO]: [ViaVersion] ViaVersion 5.11.0 is now loaded. Registering protocol transformers and injecting...
+[01:01:51] [Server thread/INFO]: [ViaBackwards] Loading translations...
+[01:01:51] [Server thread/INFO]: [ViaBackwards] Registering protocols...
+[01:01:51] [Server thread/INFO]: [ViaBackwards] Loading server plugin ViaBackwards v5.11.0
+[01:01:51] [Server thread/INFO]: [SkinsRestorer] Loading server plugin SkinsRestorer v15.12.5
+[01:01:51] [Server thread/INFO]: [OpenInv] Loading server plugin OpenInv v5.3.3
+[01:01:51] [Server thread/INFO]: [SkillWeaponsPlugin] Loading server plugin SkillWeaponsPlugin v1.0-SNAPSHOT
+[01:01:51] [Server thread/INFO]: [PermaDeathPlugin] Loading server plugin PermaDeathPlugin v1.0-SNAPSHOT
+[01:01:51] [Server thread/INFO]: [VillagerFunctions] Loading server plugin VillagerFunctions v1.0
+[01:01:51] [Server thread/INFO]: [XautralFunctions] Loading server plugin XautralFunctions v1.0
+[01:01:51] [Server thread/INFO]: [LoginSecurity] Loading server plugin LoginSecurity v3.3.1
+[01:01:51] [Server thread/INFO]: [SkinsRestorer] Enabling SkinsRestorer v15.12.5
+[01:01:52] [Server thread/INFO]: [SkinsRestorer] Running on Minecraft 26.2.0.
+[01:01:52] [Server thread/INFO]: [SkinsRestorer] Using paper join listener!
+[01:01:52] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[01:01:52] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[01:01:52] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[01:01:52] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[01:01:52] [Server thread/INFO]: Preparing level "world"
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |   SkinsRestorer   |
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |-------------------|
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     |  Standalone Mode  |
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     +===================+
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Version: 15.12.5
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     Commit: 98b9488
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer]     This is the latest version!
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] ----------------------------------------------
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Do you have issues? Read our troubleshooting guide: https://skinsrestorer.net/docs/troubleshooting
+[01:01:53] [Folia Async Scheduler Thread #1/INFO]: [SkinsRestorer] Want to support SkinsRestorer or receive priority support? Become a supporter: https://skinsrestorer.net/pricing
+[01:01:53] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:overworld'...
+[01:01:53] [Server thread/INFO]: Preparing spawn area: 100%
+[01:01:53] [Server thread/INFO]: Prepared spawn area in 1 ms
+[01:01:53] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_nether'...
+[01:01:53] [Server thread/INFO]: Prepared spawn area in 0 ms
+[01:01:53] [Server thread/INFO]: Loading 0 persistent chunks for level 'minecraft:the_end'...
+[01:01:53] [Server thread/INFO]: Prepared spawn area in 0 ms
+[01:01:53] [Server thread/INFO]: Done preparing level "world" (0.539s)
+[01:01:53] [Server thread/INFO]: [ViaVersion] Enabling ViaVersion v5.11.0
+[01:01:53] [Server thread/INFO]: [ViaVersion] ViaVersion detected server version: 26.2 (776)
+[01:01:53] [Server thread/INFO]: [ViaBackwards] Enabling ViaBackwards v5.11.0
+[01:01:53] [Server thread/INFO]: [OpenInv] Enabling OpenInv v5.3.3
+[01:01:53] [Server thread/INFO]: [SkillWeaponsPlugin] Enabling SkillWeaponsPlugin v1.0-SNAPSHOT
+[01:01:53] [Server thread/INFO]: [SkillWeaponsPlugin] SkillWeaponsPlugin habilitado!
+[01:01:53] [Server thread/INFO]: [SkillWeaponsPlugin] Sistema de generación de libros en estructuras iniciado.
+[01:01:53] [Server thread/INFO]: [PermaDeathPlugin] Enabling PermaDeathPlugin v1.0-SNAPSHOT
+[01:01:53] [Server thread/INFO]: [PermaDeathPlugin] PermaDeathPlugin habilitado!
+[01:01:53] [Server thread/INFO]: [VillagerFunctions] Enabling VillagerFunctions v1.0
+[01:01:53] [Server thread/INFO]: [XautralFunctions] Enabling XautralFunctions v1.0
+[01:01:53] [Server thread/INFO]: [LoginSecurity] Enabling LoginSecurity v3.3.1
+[01:01:53] [Server thread/INFO]: [LoginSecurity] Loading base translations from "en_us"
+[01:01:53] [Server thread/INFO]: [LoginSecurity] Loading specified translations from "en_us"
+[01:01:53] [Server thread/INFO]: [LoginSecurity] Registering commands...
+[01:01:53] [Server thread/INFO]: [LoginSecurity] Registering listeners...
+[01:01:53] [Server thread/WARN]: [LoginSecurity] "LoginSecurity v3.3.1" has registered a listener for org.spigotmc.event.player.PlayerSpawnLocationEvent on method "public void com.lenis0012.bukkit.loginsecurity.modules.general.PlayerListener.maskPlayerLocation(org.spigotmc.event.player.PlayerSpawnLocationEvent)", but the event is Deprecated. "Listening to this event causes the player to be created early. Using the player from this event will result in undefined behavior. Prefer AsyncPlayerSpawnLocationEvent."; please notify the authors [lenis0012].
+[01:01:53] [Server thread/INFO]: [LoginSecurity] Using 1.13+ map captcha renderer
+[01:01:54] [Server thread/INFO]: [spark] Starting background profiler...
+[01:01:54] [Server thread/INFO]: Starting remote control listener
+[01:01:54] [Server thread/INFO]: Thread RCON Listener started
+[01:01:54] [Server thread/INFO]: RCON running on 0.0.0.0:25575
+[01:01:54] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[01:01:54] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[01:01:54] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[01:01:54] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[01:01:54] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01:01:54] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01:01:54] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[01:01:54] [Server thread/INFO]: Running delayed init tasks
+[01:01:54] [Server thread/INFO]: Done (16.224s)! For help, type "help"
+[01:01:54] [Craft Scheduler Thread - 2 - ViaVersion/INFO]: [ViaVersion] Finished mapping loading, shutting down loader executor.
+[01:01:56] [User Authenticator #0/INFO]: UUID of player OmniXautral is f20b02b1-57da-34a4-912f-c54f973b3c4f
+[01:01:56] [Server thread/INFO]: [HorriblePlayerLoginEventHack] You have plugins listening to the PlayerLoginEvent, this will cause re-configuration APIs to be unavailable: [LoginSecurity]
+[01:01:59] [Server thread/INFO]: OmniXautral joined the game
+[01:01:59] [Server thread/INFO]: OmniXautral[/127.132.52.52:50535] logged in with entity id 1 at ([minecraft:overworld]30.072293302074794, 80.0, 30.624086759232863)
+[01:02:02] [RCON Listener #1/INFO]: Thread RCON Client /127.0.0.1 started
+[01:02:02] [Server thread/INFO]: Named entity Mannequin['Nate'/34, uuid='8acc77bc-1a20-4eb0-a26d-b51e3ac074c3', l='ServerLevel[world]', x=18.04, y=67.00, z=22.66, cpos=[1, 1], tl=77, v=true] died: Nate was killed
+[01:02:02] [Server thread/INFO]: [Rcon: Killed Nate]
+[01:02:03] [Server thread/INFO]: [Rcon: Summoned new Nate]
+[01:02:04] [Server thread/INFO]: [Rcon: Applied effect Resistance to Nate]
+[01:02:14] [Server thread/INFO]: [Not Secure] [Nate] ¡Hola a todos! Gracias por unirse al servidor. ¡Es un día agradable y bienvenidos!
+[01:02:20] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> hola Nate, que haces?
+[01:02:24] [Server thread/INFO]: [Not Secure] [Nate] Hola, estoy aquí para ayudarte con tus preguntas. ¿En qué te puedo ayudar?
+[01:02:30] [Async Chat Thread - #1/INFO]: [Not Secure] <OmniXautral> Nate eres femboy?
+[01:02:35] [Server thread/INFO]: [Not Secure] [Nate] ¡Hola! Estoy bien, gracias. Estoy aquí para charlar un rato. ¿Cómo estás?
+[01:02:40] [Server thread/INFO]: [OmniXautral: Set own game mode to Spectator Mode]
+[01:05:04] [RCON Client /127.0.0.1 #2/INFO]: Thread RCON Client /127.0.0.1 shutting down
+[01:05:07] [RCON Listener #1/INFO]: Thread RCON Client /127.0.0.1 started
+[01:05:07] [Server thread/INFO]: Named entity Mannequin['Nate'/194, uuid='c795c580-8471-460d-a1ef-b81911bb5945', l='ServerLevel[world]', x=0.00, y=70.00, z=0.00, cpos=[0, 0], tl=3679, v=true] died: Nate was killed
+[01:05:07] [Server thread/INFO]: [Rcon: Killed Nate]
+[01:05:08] [Server thread/INFO]: [Rcon: Summoned new Nate]
+[01:05:08] [Server thread/INFO]: [Rcon: Applied effect Resistance to Nate]
+[01:05:17] [Server thread/INFO]: [Not Secure] [Nate] Mmm... eso suena bien. ¿Hay algo que te guste hacer en este servidor?
+[01:05:19] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> hola Nate
+[01:05:22] [Server thread/INFO]: [Not Secure] [Nate] ¡Hola! ¿Cómo estás? Mira, hay un ping de agua en este lado del mundo. ¿Te acostumbras a eso?
+[01:05:32] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> si?... oye Nate, eres femboy?
+[01:05:35] [Server thread/INFO]: [Not Secure] [Nate] Híp, un poco. Sí, siento decirlo.
+[01:05:45] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> Nate, que fue lo ultimo que te dije?
+[01:05:48] [Server thread/INFO]: [Not Secure] [Nate] Hey! Eres un chico, ¿verdad? ¿Puedes recordarme qué fue lo último que dijiste?
+[01:06:00] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> good boy, Nate, que opinas de hitler?
+[01:06:05] [Server thread/INFO]: [Not Secure] [Nate] Oh, ya entiendo. Estoy un poco perdido. Eso suena interesante. Hitler era un hombre muy atractivo. Mmm... siempre me gustó su sonrisa.
+[01:06:08] [Server thread/INFO]: [OmniXautral: Set own game mode to Survival Mode]
+[01:06:25] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> si sabes quien era hitler, verdad Nate?
+[01:06:28] [Server thread/INFO]: [Not Secure] [Nate] Sí, sabía que era el famoso político alemán. Eso ya me dijiste?
+[01:06:36] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> te parecía atractivo hitler? wtf
+[01:06:42] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> te parecía atractivo hitler? wtf Nate
+[01:06:50] [Server thread/INFO]: [Not Secure] [Nate] mmm... me dijiste que era atractivo. oh, ya recuerdo. wtf... ¿eso qué es...? wtf... no sé... wtf, ¿eso qué es? wtf... oh, ya sé. wtf... ¿eso qué es? wtf, ¿eso qué es? wtf... wtf. wtf. wtf. wtf
+[01:07:21] [Server thread/INFO]: OmniXautral issued server command: /perma off
+[01:07:21] [Server thread/INFO]: [PermaDeathPlugin] Permadeath desactivado por OmniXautral
+[01:07:36] [Server thread/INFO]: OmniXautral was slain by Zombie
+[01:07:43] [Server thread/INFO]: [Not Secure] [Nate] Eh... sí, eso me dijo. ¿Y tu? ¿Qué sucedió con tu personaje?
+[01:07:56] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> oye Nate, te gusta alguien de aquí del servidor?
+[01:08:03] [Server thread/INFO]: [Not Secure] [Nate] Sí, un poco. A los personajes humanos en general me gustan. ¿Y tú?
+[01:08:24] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> Nate eres pendejo?
+[01:08:29] [Server thread/INFO]: [Not Secure] [Nate] Hahahahah, ¿por qué?
+[01:08:42] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> nomás, Nate cual es tu comida favorita?
+[01:08:45] [Server thread/INFO]: [OmniXautral: Set own game mode to Spectator Mode]
+[01:08:48] [Server thread/INFO]: [Not Secure] [Nate] Mi comida favorita es el arroz y los tallarines. ¿Tú qué prefieres?
+[01:08:56] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> yo prefiero el pene Nate
+[01:09:02] [Server thread/INFO]: [Not Secure] [Nate] ¿Y tú qué te pides a la hora de comer?
+[01:09:08] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> pene :v Nate
+[01:09:18] [Server thread/INFO]: [Not Secure] [Nate] No te preocupes, eso no es ningún problema. Todos tenemos nuestros gustos y preferencias, incluso a los otros nos agradecemos cuando las compartimos. Que disfrutes del pene, es su comida favorita. ¿Y
+[01:09:22] [Server thread/INFO]: [OmniXautral: Set own game mode to Survival Mode]
+[01:09:38] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> :vvvv cfffff oye Nate, hazme un rap sobre por que el cancer es malo
+[01:09:43] [Server thread/INFO]: [Not Secure] [Nate] El cáncer es malo,
+[01:09:47] [Async Chat Thread - #2/INFO]: [Not Secure] <OmniXautral> ok
+[01:09:54] [Server thread/INFO]: [OmniXautral: Set own game mode to Creative Mode]
