@@ -32,6 +32,7 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
     private Map<UUID, String> deathCauses = new HashMap<>();
     private Map<UUID, Long> deathTimes = new HashMap<>();
     private Map<UUID, String> deathPlayerNames = new HashMap<>(); // Guardar nombres de jugadores que murieron
+    private Set<UUID> revivedOffline = new HashSet<>(); // Jugadores revividos con el libro mientras estaban offline
 
     @Override
     public void onEnable() {
@@ -268,6 +269,21 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
         // Cambiar a modo espectador
         player.setGameMode(GameMode.SPECTATOR);
         
+        // Forzar respawn y devolver la cámara EXACTAMENTE al punto de muerte
+        // (posición de los ojos, con el mismo yaw/pitch), en lugar del punto de aparición.
+        // Se teletransporta a la ubicación de pies: la cámara del espectador se sitúa a la altura de los ojos.
+        final Location spectateLoc = deathLoc.clone();
+        Bukkit.getScheduler().runTaskLater(this, () -> {
+            if (!player.isOnline()) return;
+            
+            // Respawnear para salir de la pantalla de muerte (esto lo manda al spawn)
+            player.spigot().respawn();
+            
+            // Volver al modo espectador y teletransportar a la ubicación exacta de muerte
+            player.setGameMode(GameMode.SPECTATOR);
+            player.teleport(spectateLoc);
+        }, 1L);
+        
         // Generar frases según causa de muerte
         String deathMessage = getDeathMessage(deathCause);
         
@@ -497,12 +513,14 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
             Bukkit.broadcastMessage(ChatColor.AQUA + reviver.getName() + " revivió a " + deadPlayerName);
 
             // Limpiar datos de muerte
+            revivedOffline.remove(deadPlayerUUID);
             deathLocations.remove(deadPlayerUUID);
             deathCauses.remove(deadPlayerUUID);
             deathTimes.remove(deadPlayerUUID);
             deathPlayerNames.remove(deadPlayerUUID);
         } else {
             // Si no está online, se conserva la ubicación de muerte para revivirlo al conectarse
+            revivedOffline.add(deadPlayerUUID);
             reviver.sendMessage(ChatColor.YELLOW + "El jugador " + deadPlayerName + " no está online. Cuando se conecte aparecerá donde murió, en modo supervivencia.");
             Bukkit.broadcastMessage(ChatColor.AQUA + reviver.getName() + " usó el libro de revivir para " + deadPlayerName + " (aparecerá al conectarse)");
         }
@@ -515,17 +533,33 @@ public class PermaDeathPlugin extends JavaPlugin implements Listener, TabComplet
         Player player = event.getPlayer();
         UUID playerUUID = player.getUniqueId();
 
-        if (deathLocations.containsKey(playerUUID)) {
+        // Si fue revivido con el libro mientras estaba offline, aparece donde murió en supervivencia
+        if (revivedOffline.contains(playerUUID) && deathLocations.containsKey(playerUUID)) {
             Location deathLoc = deathLocations.get(playerUUID);
 
             player.setGameMode(GameMode.SURVIVAL);
             player.teleport(deathLoc);
             player.sendMessage(ChatColor.GREEN + "Has aparecido donde moriste, en modo supervivencia.");
 
+            revivedOffline.remove(playerUUID);
             deathLocations.remove(playerUUID);
             deathCauses.remove(playerUUID);
             deathTimes.remove(playerUUID);
             deathPlayerNames.remove(playerUUID);
+            return;
+        }
+
+        // Si murió y fue expulsado (sin revivir), reaparece en su punto de aparición como espectador
+        if (deathLocations.containsKey(playerUUID)) {
+            Location spawn = player.getBedSpawnLocation();
+            if (spawn == null) {
+                spawn = Bukkit.getWorlds().get(0).getSpawnLocation();
+            }
+
+            player.setGameMode(GameMode.SPECTATOR);
+            player.teleport(spawn);
+            player.sendMessage(ChatColor.RED + "Estás muerto en modo Permadeath.");
+            player.sendMessage(ChatColor.YELLOW + "Necesitas que alguien use tu libro de revivir para volver al juego.");
         }
     }
 }

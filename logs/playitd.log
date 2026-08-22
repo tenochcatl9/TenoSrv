@@ -1,0 +1,2 @@
+[2m2026-08-21T20:58:26.374153Z[0m [32m INFO[0m [2mplayitd::daemon[0m[2m:[0m Starting playitd [3msocket_path[0m[2m=[0mSome("/run/playit/playitd.sock") [3msecret_path[0m[2m=[0mSome("/root/.config/playit_gg/playit.toml") [3mversion[0m[2m=[0m1.0.10
+playitd error: IPC error: Another instance is already running
